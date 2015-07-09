@@ -1,6 +1,8 @@
 #!/usr/bin/env python
 
 from libv2_cv import *
+#from libv3_cv import np, call_lens_images,call_mmbr_images,call_all_about_lensing
+#from libv3_cv import *
 
 #@profile
 def main():
@@ -92,14 +94,9 @@ def main():
     spar = np.asarray([g_ycen,g_xcen,g_axrat,g_amp,g_sig,g_pa])
     #----------------------------------------------
 
-    g_lenses = lens_images(xi1,xi2,gpar,gpars)
-    g_shapes = mmbr_images(xi1,xi2,gpar,gpars)
-
-    #s_image,g_lensimage,mu,yi1,yi2 = lensed_images(xi1,xi2,spar,lpar,lpars)
-    #mu = 1.0/mu
-    #critical = call_find_critical_curve(mu)
-    #caustic = find_caustics(lpar,lpars,critical,xi1,xi2,dsx)
-    s_image,g_lensimage,criticals,caustics = all_about_lensing(xi1,xi2,spar,lpar,lpars)
+    g_lenses = call_lens_images(xi1,xi2,gpar,gpars)
+    g_shapes = call_mmbr_images(xi1,xi2,gpar,gpars)
+    s_image,g_lensimage,criticals,caustics = call_all_about_lensing(xi1,xi2,spar,lpar,lpars)
 
     baset[:,:,0] = g_shapes*255
     baset[:,:,1] = g_shapes*255
@@ -126,7 +123,7 @@ def main():
     base4[:,:,2] = caustics*0
 
     wf = base1+base2+base3+base4
-    print np.max(wf)
+    #print np.max(wf)
 
 if __name__ == '__main__':
     main()

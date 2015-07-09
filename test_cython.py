@@ -3,6 +3,7 @@
 import pygame
 from pygame.locals import *
 from sys import exit
+#from libv3_cv import *
 from libv2_cv import *
 
 def main():
@@ -258,14 +259,13 @@ def main():
         spar = np.asarray([g_ycen,g_xcen,g_axrat,g_amp,g_sig,g_pa])
         #----------------------------------------------
 
-        g_lenses = lens_images(xi1,xi2,gpar,gpars)
-        g_shapes = mmbr_images(xi1,xi2,gpar,gpars)
+        g_lenses = call_lens_images(xi1,xi2,gpar,gpars)
+        g_shapes = call_mmbr_images(xi1,xi2,gpar,gpars)
+        s_image,g_lensimage,critical,caustic = call_all_about_lensing(xi1,xi2,spar,lpar,lpars)
 
         baset[:,:,0] = g_shapes*255
         baset[:,:,1] = g_shapes*255
         baset[:,:,2] = g_shapes*255
-
-        s_image,g_lensimage,critical,caustic = all_about_lensing(xi1,xi2,spar,lpar,lpars)
 
         base0[:,:,0] = g_lenses*255
         base0[:,:,1] = g_lenses*127

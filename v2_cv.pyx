@@ -183,7 +183,7 @@ cdef tot_lq(np.ndarray[Dtype, ndim=2, mode="c"] x1,
     cdef np.ndarray al2s = np.zeros((nx1,nx2),dtype=np.double)
 
     llen = len(lpars)
-    cdef np.ndarray lpars_i = np.zeros((nx1,nx2),dtype=np.double)
+    cdef np.ndarray lpars_i = np.zeros((len(lpar)),dtype=np.double)
     for i in xrange(llen):
         lpars_i = lpars[i]
         lq_nie(<Dtype *>x1.data,<Dtype *>x2.data,nx1,nx2,<Dtype *>lpars_i.data,<Dtype *>al1s.data,<Dtype *>al2s.data)
@@ -260,7 +260,7 @@ def lensed_images(np.ndarray[Dtype, ndim=2, mode="c"] xi1,
     cdef np.ndarray al2s = np.zeros((nx1,nx2),dtype=np.double)
 
     llen = len(lpars)
-    cdef np.ndarray lpars_i = np.zeros((nx1,nx2),dtype=np.double)
+    cdef np.ndarray lpars_i = np.zeros((len(lpar)),dtype=np.double)
     for i in xrange(llen):
         lpars_i = lpars[i]
         lq_nie(<Dtype *>xi1.data,<Dtype *>xi2.data,nx1,nx2,<Dtype *>lpars_i.data,<Dtype *>al1s.data,<Dtype *>al2s.data)
@@ -310,7 +310,7 @@ def lensed_images(np.ndarray[Dtype, ndim=2, mode="c"] xi1,
 #    cdef np.ndarray al2s = np.zeros((nx1,nx2),dtype=np.double)
 #
 #    llen = len(lpars)
-#    cdef np.ndarray lpars_i = np.zeros((nx1,nx2),dtype=np.double)
+#    cdef np.ndarray lpars_i = np.zeros((len(lpar)),dtype=np.double)
 #    for i in xrange(llen):
 #        lpars_i = lpars[i]
 #        lq_nie(<Dtype *>xi1.data,<Dtype *>xi2.data,nx1,nx2,<Dtype *>lpars_i.data,<Dtype *>al1s.data,<Dtype *>al2s.data)
@@ -386,7 +386,7 @@ def lensed_images(np.ndarray[Dtype, ndim=2, mode="c"] xi1,
 #    g_edge[g_edge>0.0] = 1.0
 #    return g_edge
 
-def lens_images(np.ndarray[Dtype, ndim=2, mode="c"] xi1,
+def call_lens_images(np.ndarray[Dtype, ndim=2, mode="c"] xi1,
                 np.ndarray[Dtype, ndim=2, mode="c"] xi2,
                 np.ndarray[Dtype, ndim=1, mode="c"] gpar,
                 list gpars):
@@ -407,7 +407,7 @@ def lens_images(np.ndarray[Dtype, ndim=2, mode="c"] xi1,
 
     return g_lens
 
-def mmbr_images(np.ndarray[Dtype, ndim=2, mode="c"] xi1,
+def call_mmbr_images(np.ndarray[Dtype, ndim=2, mode="c"] xi1,
                 np.ndarray[Dtype, ndim=2, mode="c"] xi2,
                 np.ndarray[Dtype, ndim=1, mode="c"] gpar,
                 list gpars):
@@ -445,7 +445,7 @@ def mmbr_images(np.ndarray[Dtype, ndim=2, mode="c"] xi1,
 #    caustic[caustic>0]=1
 #    return caustic
 
-def all_about_lensing(np.ndarray[Dtype, ndim=2, mode="c"] xi1,
+def call_all_about_lensing(np.ndarray[Dtype, ndim=2, mode="c"] xi1,
                       np.ndarray[Dtype, ndim=2, mode="c"] xi2,
                       np.ndarray[Dtype, ndim=1, mode="c"] spar,
                       np.ndarray[Dtype, ndim=1, mode="c"] lpar,
@@ -464,7 +464,7 @@ def all_about_lensing(np.ndarray[Dtype, ndim=2, mode="c"] xi1,
 
     cdef int i,j
     llen = len(lpars)
-    cdef np.ndarray lpars_i = np.zeros((nx1,nx2),dtype=np.double)
+    cdef np.ndarray lpars_i = np.zeros((len(lpar)),dtype=np.double)
     for i in xrange(llen):
         lpars_i = lpars[i]
         lq_nie(<Dtype *>xi1.data,<Dtype *>xi2.data,nx1,nx2,<Dtype *>lpars_i.data,<Dtype *>al1s.data,<Dtype *>al2s.data)
