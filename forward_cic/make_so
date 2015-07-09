@@ -1,0 +1,2 @@
+gcc -Wall -fPIC -c fcic.c
+gcc -shared fcic.o -o ./libfcic.so
