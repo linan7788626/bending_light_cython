@@ -3,8 +3,8 @@
 import pygame
 from pygame.locals import *
 from sys import exit
-#from libv3_cv import *
-from libv2_cv import *
+from libv3_cv import *
+#from libv2_cv import *
 
 def main():
     nnn = 512

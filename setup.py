@@ -12,8 +12,8 @@ import numpy as np
 #    include_gsl_dir = r"c:\msys\1.0\local\include"
 #    lib_gsl_dir = r"c:\msys\1.0\local\lib"
 
-ext = Extension("libv2_cv", ["./v2_cv.pyx","./cv_test.c","./fcic.c"],
-#ext = Extension("libv3_cv", ["./v3_cv.pyx","./all_cv_test.c"],
+#ext = Extension("libv2_cv", ["./v2_cv.pyx","./cv_test.c","./fcic.c"],
+ext = Extension("libv3_cv", ["./v3_cv.pyx","./all_cv_test.c"],
     include_dirs=[np.get_include(),
                   "./"],
     library_dirs=["./"],
