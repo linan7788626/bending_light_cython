@@ -3,8 +3,8 @@
 import pygame
 from pygame.locals import *
 from sys import exit
-from libv3_cv import *
-#from libv2_cv import *
+#from libv3_cv import *
+from libv2_cv import *
 
 def main():
     nnn = 512
@@ -287,7 +287,7 @@ def main():
         base4[:,:,1] = caustic*255
         base4[:,:,2] = caustic*0
 
-        if keys[pygame.K_t]:
+        if keys[pygame.K_f]:
             base = baset+base1+base2
 
         elif keys[pygame.K_g]:
@@ -302,9 +302,21 @@ def main():
             wf = base1+base2+base3+base4
             base = wf
 
+        #if keys[pygame.K_b]:
+        #    base = base1+base2+base3+base4
+
+        #elif keys[pygame.K_g]:
+        #    wf = base0+base1+base2
+
+        #    idx1 = wf>=base0
+        #    idx2 = wf<base0
+        #    base = base0*0
+        #    base[idx1] = wf[idx1]
+        #    base[idx2] = base0[idx2]
+        #else:
+        #    base = baset+base1+base2
+
         pygame.surfarray.blit_array(mouse_cursor,base)
-
-
         screen.blit(pygame.transform.scale(mouse_cursor,(nnw,nnw)), (0, 0))
 
         #font=pygame.font.SysFont(None,30)
