@@ -42,28 +42,28 @@ Try "f" and "g". :-)
 
 ##Todo List
 1. Sources
-- [ ] More models of sources (Sersic, Moffat, Disk\+Bulge...)
-- [ ] Real galaxies images.
-- [ ] Arbitrary pictures (for fun).
+ - [ ] More models of sources (Sersic, Moffat, Disk\+Bulge...)
+ - [ ] Real galaxies images.
+ - [ ] Arbitrary pictures (for fun).
 
 2. Lenses
-- [ ] More models of lenses (PIEMD, GNFW, NFW\+Hernquist, Burkert...)
-- [ ] Directly input mass sheet.
-- [ ] More satellite galaxies?
-- [ ] Realistic images of statelite galaxies.
+ - [ ] More models of lenses (PIEMD, GNFW, NFW\+Hernquist, Burkert...)
+ - [ ] Directly input mass sheet.
+ - [ ] More satellite galaxies?
+ - [ ] Realistic images of statelite galaxies.
 
 3. Algorithm 
-- [ ] Better caustic drawer.
+ - [ ] Better caustic drawer.
 
 5. Time delay
-- [ ] Implementing in twinkles branch.
+ - [ ] Implementing in twinkles branch.
 
 6. Competition Model.
-- [ ] Input lensed images by one person.
-- [ ] Reconstruct it by another one.
-- [ ] Score the matching.
+ - [ ] Input lensed images by one person.
+ - [ ] Reconstruct it by another one.
+ - [ ] Score the matching.
 
 7. Science Side
-- [ ] Save the parameters of current lensing system, including lenses and sources.
-- [ ] Make the catalog of lensing system to be an input file.
-- [ ] Show all the parameters of current lensing system in real time.
+ - [ ] Save the parameters of current lensing system, including lenses and sources.
+ - [ ] Make the catalog of lensing system to be an input file.
+ - [ ] Show all the parameters of current lensing system in real time.
