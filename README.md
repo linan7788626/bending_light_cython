@@ -8,8 +8,8 @@ A version of my glensing toy with cython boosting.
 >Python2.7, Numpy, pygame, cython.
 
 2. Installation:
->* Clone it to your local directory or click the "Download ZIP" button to download it.  
->* "python setup.py build_ext --inplace" OR "./make_so"
+>1. Clone it to your local directory or click the "Download ZIP" button to download it.  
+>2. "python setup.py build_ext --inplace" OR "./make_so"
 
 3. Run Code:
 >python test_cython.py
