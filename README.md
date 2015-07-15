@@ -3,10 +3,10 @@
 ## Introduction
 A version of my glensing toy with cython boosting. 
 
-1. Dependences: 
+1. Dependences:  
 	* [Python2.7](https://www.python.org), [Numpy](http://www.numpy.org), [Pygame](http://www.pygame.org), [Cython](http://cython.github.io).
 
-2. Installation:
+2. Installation:  
 	* Clone it or download it, firstly.  
 	Then
 	```bash
@@ -16,7 +16,7 @@ A version of my glensing toy with cython boosting.
 	```bash
 	$./make_so
 	```
-3. Run Code:
+3. Run Code:  
 	```bash
 	$ python2.7 test_cython.py
 	```
