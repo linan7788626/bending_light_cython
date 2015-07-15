@@ -7,7 +7,7 @@ A version of my **_Glensing Toy_** with cython boosting.
 	* [Python2.7](https://www.python.org), [Numpy](http://www.numpy.org), [Pygame](http://www.pygame.org), [Cython](http://cython.github.io).
 
 2. Installation:  
-	* Clone it or download it, firstly.  
+	* Clone it or download it firstly.  
 	
 
 	Then
