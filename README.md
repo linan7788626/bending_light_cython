@@ -34,8 +34,8 @@ Similar with the source, you can press "w" for position, "s" for size (Einstein 
 
 3. How to add or remove satellite galaxies:  
 In our code, we can also add or remove subhalos if needed, but, so far, you can only add 8 subhalos at most.
-  *Hold "=", click the right click to add.
-  *Hold "-", click the right click to remove the last added subhalo.
+  * Hold "=", click the right click to add.
+  * Hold "-", click the right click to remove the last added subhalo.
 
 4. Toggles:  
 Try "f" and "g". :-)
