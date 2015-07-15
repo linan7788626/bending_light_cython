@@ -8,8 +8,7 @@ A version of my glensing toy with cython boosting.
 Python2.7, Numpy, pygame, cython.
 
 ###Compile
-python setup.py build_ext --inplace
-OR, just use "./make_so"
+"python setup.py build_ext --inplace" OR "./make_so"
 
 ###Run test
 python test_cython.py
@@ -26,10 +25,10 @@ but you have to press "w" for where, "s" for size and "e" for ellipticity and or
 
 ###how to control lenses: 
 Use the right click of the mouse to control properties of lenses, 
-as controling the sources, you can also press "w" for position, "s" for lensing strength and "e" for ellipticity and orientation, but first of all, you need to press num keys to choose which component you want to handle. Here, "1" stands for the main halo, "2~9" stand for the sub halos. For example, if you want to change the ellipticity and orientation of the mail halo, please hold "1", "e" and right click, then move vertically, the ellipticity of the main halo will be changed, move horizontally, the orientation of the main halo will be changed. Because we are using NIE model in this code, so when you press "s" to change the size of the lens, there are to sizes, one the Einstein Radius(move your mouse vertically), the other one is the core radius (move your mouse horizontally). If you want to control the subhalos, for example, at the beginning, there is only one subhalo, please press "2" first, then do everythin you want.
+as controling the sources, you can also press "w" for position, "s" for lensing strength and "e" for ellipticity and orientation, but first of all, you need to press num keys to choose which component you want to handle. Here, "1" stands for the main halo, "2~9" stand for the sub halos. For example, if you want to change the ellipticity and orientation of the main halo, please hold "1", "e" and right click, then move vertically, the ellipticity of the main halo will be changed, move horizontally, the orientation of the main halo will be changed. Because we are using NIE model in this code, so when you press "s" to change the size of the lens, there are to sizes, one the Einstein Radius(move your mouse vertically), the other one is the core radius (move your mouse horizontally). If you want to control the subhalos, for example, at the beginning, there is only one subhalo, please press "2" first, then do everythin you want.
 
 ###How to add or remove satellite galaxies.
-In our code, we can also add or remove subhalos as you will, but so far you can only add 9 subhalos at most.
+In our code, we can also add or remove subhalos as you will, but, so far, you can only add 8 subhalos at most.
 >Hold "=", click the right click to add.
 >Hold "-", click the right click to remove the last added subhalo.
 
