@@ -1,7 +1,7 @@
 # cython_pylensing_toys
 
 ## Introduction
-A version of my __Glensing Toy__ with cython boosting. 
+A version of my _Glensing Toy_ with cython boosting. 
 
 1. Dependences:  
 	* [Python2.7](https://www.python.org), [Numpy](http://www.numpy.org), [Pygame](http://www.pygame.org), [Cython](http://cython.github.io).
