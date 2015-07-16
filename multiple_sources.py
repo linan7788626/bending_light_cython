@@ -3,8 +3,8 @@
 import pygame
 from pygame.locals import *
 from sys import exit
-from libv3_cv import *
-#from libv2_cv import *
+#from libv3_cv import *
+from libv2_cv import *
 
 def main():
     nnn = 512
@@ -38,13 +38,12 @@ def main():
     # parameters of source
     x = 0
     y = 0
-    #step = 1
     gr_sig = 0.02
     gr_eq = 1.0
     gr_pa = 0.0
 
     #----------------------------------------------------
-    # lens parameters for mainhalo
+    # lens parameters of mainhalo
     xlc0 = 0.0
     ylc0 = 0.0
     ql0 = 0.7
@@ -52,7 +51,7 @@ def main():
     re0 = 1.0
     phi0 = 0.0
     #----------------------------------------------------
-    # lens parameters for subhalo
+    # lens parameters of subhalo
     xlcs = 0.7
     ylcs = 0.77
     qls = 0.99999
@@ -72,11 +71,11 @@ def main():
     lpars = [lpar_sub]
 
     #----------------------------------------------------
-    # luminosity parameters for mainbhalo
+    # luminosity parameters of mainbhalo
     ap0 = 1.0
     l_sig0 = 0.5
     #----------------------------------------------------
-    # luminosity parameters for subhalo
+    # luminosity parameters of subhalo
     aps = 0.4
     l_sigs = 0.05
     #----------------------------------------------------
@@ -94,15 +93,6 @@ def main():
     #---------------------------------------------------
 
     delta = 1e-8
-    #lineThickness = 1
-
-    #LeftButton=0
-
-    ## Define some colors
-    #BLACK = (0, 0, 0)
-    #WHITE = (255, 255, 255)
-    #GREEN = (0, 255, 0)
-    #RED = (255, 0, 0)
 
     pygame.RESIZABLE
 
@@ -116,6 +106,56 @@ def main():
         rotation=pygame.mouse.get_rel()
         buttonpress=pygame.mouse.get_pressed()
         keys = pygame.key.get_pressed()  #checking pressed keys
+
+        #----------------------------------------------
+        #parameters of source galaxies.
+        #----------------------------------------------
+        g_amp = 1.0         # peak brightness value
+        g_sig = gr_sig          # Gaussian "sigma" (i.e., size)
+        g_ycen = y*2.0/nnn  # y position of center
+        g_xcen = x*2.0/nnn  # x position of center
+        g_axrat = gr_eq       # minor-to-major axis ratio
+        g_pa = gr_pa          # major-axis position angle (degrees) c.c.w. from y axis
+        spars = np.asarray([g_ycen,g_xcen,g_axrat,g_amp,g_sig,g_pa])
+        #----------------------------------------------
+        if buttonpress[0] and keys[pygame.K_EQUALS]:
+            xscs = (pos[0]*nnn/nnw-nnn/2.0)*dsx
+            yscs = (pos[1]*nnn/nnw-nnn/2.0)*dsx
+            spar_sub = np.asarray([yscs,xscs,g_axrat,g_amp,gr_sig,gr_pa])
+            spars.append(spar_sub)
+        if buttonpress[2] and keys[pygame.K_MINUS]:
+            if len(spars) > 0:
+                del spars[-1]
+        for i in xrange(len(lpars)):
+            kp = "K_"+str(i+1)
+            kpv = getattr(pygame, kp)
+
+            if rotation[0] and buttonpress[0] and keys[pygame.K_s] and keys[kpv] :
+
+                spars[i][3]=spars[i][3]+rotation[0]*0.002
+                if spars[i][3] <= 0:
+                    spars[i][3] = delta
+                if spars[i][3] >= 1:
+                    spars[i][3] = 1.0-delta
+
+                spars[i][4]=spars[i][4]-rotation[1]*0.005
+                if spars[i][4] <= 0:
+                    spars[i][4] = delta
+
+            if rotation[0] and buttonpress[0] and keys[pygame.K_w] and keys[kpv] :
+                spars[i][1]=spars[i][1]+rotation[0]*0.01
+                spars[i][0]=spars[i][0]+rotation[1]*0.01
+
+            if rotation[0] and buttonpress[0] and keys[pygame.K_e] and keys[kpv] :
+                spars[i][5]=spars[i][5]+rotation[0]
+
+                spars[i][2]=spars[i][2]+rotation[1]*0.002
+                if spars[i][2] <= 0.3:
+                    spars[i][2] = 0.3
+                if spars[i][2] >= 1:
+                    spars[i][2] = 1.0-delta
+
+#####################################################
 
         if buttonpress[2] and keys[pygame.K_EQUALS]:
             xlcs = (pos[0]*nnn/nnw-nnn/2.0)*dsx
@@ -246,18 +286,8 @@ def main():
 
         lpar = np.asarray([ylc0,xlc0,ql0,rc0,re0,phi0])
         gpar = np.asarray([ylc0,xlc0,ql0,ap0,l_sig0,phi0])
+        #--------------------------------------------------------
 
-        #----------------------------------------------
-        #parameters of source galaxies.
-        #----------------------------------------------
-        g_amp = 1.0         # peak brightness value
-        g_sig = gr_sig          # Gaussian "sigma" (i.e., size)
-        g_ycen = y*2.0/nnn  # y position of center
-        g_xcen = x*2.0/nnn  # x position of center
-        g_axrat = gr_eq       # minor-to-major axis ratio
-        g_pa = gr_pa          # major-axis position angle (degrees) c.c.w. from y axis
-        spar = np.asarray([g_ycen,g_xcen,g_axrat,g_amp,g_sig,g_pa])
-        #----------------------------------------------
 
         g_lenses = call_lens_images(xi1,xi2,gpar,gpars)
         g_shapes = call_mmbr_images(xi1,xi2,gpar,gpars)
