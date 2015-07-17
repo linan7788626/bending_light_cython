@@ -10,7 +10,6 @@ This is a version of my **_Glensing Toy_** with cython boosting. **_Glensing Toy
 
 2. Installation:  
 	* Clone it or download it firstly.  
-	
 
 	Then
 	```bash
