@@ -26,10 +26,10 @@ Figure 3:
 	```bash
 	$./make_so
 	```
-3. Run Code:  
+3. Code Testing:  
 
 	```bash
-	$ python2.7 test_cython.py
+	$ python2.7 multiple_sources.py
 	```
 
 
