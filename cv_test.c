@@ -92,46 +92,6 @@ void lq_nie(double *x1,double *x2,int nx1,int nx2,double *lpar,double *alpha1,do
 	free(xt2);
 }
 
-//void refine_critical(double *critical,double *xi1,double *xi2,double *ai1,double *ai2,int n,double dsx,int nfiner,double *yi1,double *yi2) {
-//	int i,j;
-//	int ncount = 0;
-//	for (i = 0; i < n; ++i) {
-//		if (critical[i]>0) {
-//			ncount = ncount+1;
-//		}
-//	}
-//	double *x1tmp = (double *) malloc(sizeof(double)*ncount);
-//	double *x2tmp = (double *) malloc(sizeof(double)*ncount);
-//	ncount = 0;
-//	for (i = 0; i < n; ++i) {
-//		if (critical[i]>0) {
-//			x1tmp[ncount] = xi1[i];
-//			x2tmp[ncount] = xi2[i];
-//			ncount = ncount+1;
-//		}
-//	}
-//
-//	int k;
-//    int dsf = dsx/nfiner/2;
-//	double x1t,x2t;
-//	for (k = 0; k<ncount; ++k) {
-//		x1t = x1tmp[k];
-//		x2t = x2tmp[k];
-//		for (i = 0; i<nfiner; ++i) for (j = 0; j<nfiner; ++j){
-//			x1t = x1tmp[k]+dsf*(1.0-nfiner)*0.5+dsf*i;
-//			x2t = x2tmp[k]+dsf*(1.0-nfiner)*0.5+dsf*i;
-//		}
-//	}
-//    for i in xrange(nfiner):
-//        for j in xrange(nfiner):
-//            x1tmp = xi1[critical>0]+(dsf*(1-nfiner)*0.5)+dsf*i
-//            x2tmp = xi2[critical>0]+(dsf*(1-nfiner)*0.5)+dsf*j
-//
-//            yift1[:,i,j],yift2[:,i,j] = source_plane_finer(x1tmp,x2tmp,lpar,lpars)
-//
-//    return yift1,yift2
-//}
-
 void find_critical_curve(double *mu,int nx,int ny,double* res) {
 
 	int i,j,index,sign_t=0;
@@ -157,10 +117,3 @@ void find_critical_curve(double *mu,int nx,int ny,double* res) {
 		}
 	}
 }
-
-//int main(int argc, const char *argv[])
-//{
-//
-//	return 0;
-//}
-

@@ -3,8 +3,9 @@
 import pygame
 from pygame.locals import *
 from sys import exit
-from libv3_cv import *
+#from libv3_cv import *
 #from libv2_cv import *
+from libv4_cv import *
 
 def main():
     nnn = 512
@@ -35,16 +36,7 @@ def main():
     base4 = np.zeros((nnn,nnn,3),'uint8')
 
     #----------------------------------------------------
-    # parameters of source
-    x = 0
-    y = 0
-    #step = 1
-    gr_sig = 0.02
-    gr_eq = 1.0
-    gr_pa = 0.0
-
-    #----------------------------------------------------
-    # lens parameters for mainhalo
+    # lens parameters of mainhalo
     xlc0 = 0.0
     ylc0 = 0.0
     ql0 = 0.7
@@ -52,7 +44,7 @@ def main():
     re0 = 1.0
     phi0 = 0.0
     #----------------------------------------------------
-    # lens parameters for subhalo
+    # lens parameters of subhalo
     xlcs = 0.7
     ylcs = 0.77
     qls = 0.99999
@@ -72,11 +64,11 @@ def main():
     lpars = [lpar_sub]
 
     #----------------------------------------------------
-    # luminosity parameters for mainbhalo
+    # luminosity parameters of mainbhalo
     ap0 = 1.0
     l_sig0 = 0.5
     #----------------------------------------------------
-    # luminosity parameters for subhalo
+    # luminosity parameters of subhalo
     aps = 0.4
     l_sigs = 0.05
     #----------------------------------------------------
@@ -91,18 +83,26 @@ def main():
 
     gpars_sub = np.asarray([ylcs,xlcs,qls,aps,l_sigs,phis])
     gpars = [gpars_sub]
+    #----------------------------------------------
+    # parameters of source galaxies.
+    #----------------------------------------------
+    x = 0
+    y = 0
+    gr_sig = 0.02
+    gr_eq = 1.0
+    gr_pa = 0.0
+
+    g_amp = 1.0         # peak brightness value
+    g_sig = gr_sig          # Gaussian "sigma" (i.e., size)
+    g_ycen = y*2.0/nnn  # y position of center
+    g_xcen = x*2.0/nnn  # x position of center
+    g_axrat = gr_eq       # minor-to-major axis ratio
+    g_pa = gr_pa          # major-axis position angle (degrees) c.c.w. from y axis
+    spar = np.asarray([g_ycen,g_xcen,g_axrat,g_amp,g_sig,g_pa])
+    spars = []
     #---------------------------------------------------
 
     delta = 1e-8
-    #lineThickness = 1
-
-    #LeftButton=0
-
-    ## Define some colors
-    #BLACK = (0, 0, 0)
-    #WHITE = (255, 255, 255)
-    #GREEN = (0, 255, 0)
-    #RED = (255, 0, 0)
 
     pygame.RESIZABLE
 
@@ -117,6 +117,62 @@ def main():
         buttonpress=pygame.mouse.get_pressed()
         keys = pygame.key.get_pressed()  #checking pressed keys
 
+        #spars = np.asarray([g_ycen,g_xcen,g_axrat,g_amp,g_sig,g_pa])
+        #----------------------------------------------
+        if buttonpress[0] and keys[pygame.K_EQUALS]:
+            xscs = (pos[0]*nnn/nnw-nnn/2.0)*dsx
+            yscs = (pos[1]*nnn/nnw-nnn/2.0)*dsx
+            spar_sub = np.asarray([yscs,xscs,g_axrat,g_amp,gr_sig,gr_pa])
+            spars.append(spar_sub)
+        if buttonpress[2] and keys[pygame.K_MINUS]:
+            if len(spars) > 0:
+                del spars[-1]
+
+        if rotation[0] and buttonpress[0] and keys[pygame.K_s] and keys[pygame.K_1] :
+
+            spar[4]=spar[4]-rotation[1]*0.001
+            if spar[4] <= 0:
+                spar[4] = delta
+            if spar[4] >= 1:
+                spar[4] = 1.0-delta
+
+        if rotation[0] and buttonpress[0] and keys[pygame.K_w] and keys[pygame.K_1] :
+            spar[1]=spar[1]+rotation[0]*0.01
+            spar[0]=spar[0]+rotation[1]*0.01
+
+        if rotation[0] and buttonpress[0] and keys[pygame.K_e] and keys[pygame.K_1] :
+            spar[5]=spar[5]+rotation[0]
+
+            spar[2]=spar[2]+rotation[1]*0.002
+            if spar[2] <= 0.1:
+                spar[2] = 0.1
+            if spar[2] >= 1:
+                spar[2] = 1.0-delta
+#-------------------------------------------------------------
+        for i in xrange(len(spars)):
+            kp = "K_"+str(i+2)
+            kpv = getattr(pygame, kp)
+
+            if rotation[0] and buttonpress[0] and keys[pygame.K_s] and keys[kpv] :
+
+                spars[i][4]=spars[i][4]-rotation[1]*0.001
+                if spars[i][4] <= 0:
+                    spars[i][4] = delta
+
+            if rotation[0] and buttonpress[0] and keys[pygame.K_w] and keys[kpv] :
+                spars[i][1]=spars[i][1]+rotation[0]*0.01
+                spars[i][0]=spars[i][0]+rotation[1]*0.01
+
+            if rotation[0] and buttonpress[0] and keys[pygame.K_e] and keys[kpv] :
+                spars[i][5]=spars[i][5]+rotation[0]
+
+                spars[i][2]=spars[i][2]+rotation[1]*0.002
+                if spars[i][2] <= 0.3:
+                    spars[i][2] = 0.3
+                if spars[i][2] >= 1:
+                    spars[i][2] = 1.0-delta
+
+#------------------------------------------------------------
         if buttonpress[2] and keys[pygame.K_EQUALS]:
             xlcs = (pos[0]*nnn/nnw-nnn/2.0)*dsx
             ylcs = (pos[1]*nnn/nnw-nnn/2.0)*dsx
@@ -124,6 +180,7 @@ def main():
             lpars.append(lpar_sub)
             gpar_sub = np.asarray([ylcs,xlcs,qls,aps,l_sigs,phis])
             gpars.append(gpar_sub)
+
         if buttonpress[2] and keys[pygame.K_MINUS]:
             if len(lpars) > 0:
                 del lpars[-1]
@@ -186,29 +243,29 @@ def main():
 
             #lpars[i] =  np.asarray([ylcs,xlcs,qls,rcs,res,phis])
 
-        #----------------------------------------------------
-        if rotation[0] and buttonpress[0] and keys[pygame.K_s]:
-            gr_sig=gr_sig-rotation[1]*0.001
-            if gr_sig <= 0:
-                gr_sig = delta
-            if gr_sig >= 1:
-                gr_sig = 1.0
+        ##----------------------------------------------------
+        #if rotation[0] and buttonpress[0] and keys[pygame.K_s]:
+        #    gr_sig=gr_sig-rotation[1]*0.001
+        #    if gr_sig <= 0:
+        #        gr_sig = delta
+        #    if gr_sig >= 1:
+        #        gr_sig = 1.0
 
-        if rotation[0] and buttonpress[0] and keys[pygame.K_w]:
-            x += rotation[0]
-            y += rotation[1]
+        #if rotation[0] and buttonpress[0] and keys[pygame.K_w]:
+        #    x += rotation[0]
+        #    y += rotation[1]
 
-        if rotation[0] and buttonpress[0] and keys[pygame.K_e]:
-            gr_pa=gr_pa+rotation[0]
+        #if rotation[0] and buttonpress[0] and keys[pygame.K_e]:
+        #    gr_pa=gr_pa+rotation[0]
 
-            gr_eq=gr_eq+rotation[1]*0.002
-            if gr_eq <= 0.1:
-                gr_eq = 0.1
-            if gr_eq >= 1:
-                gr_eq = 1.0-delta
+        #    gr_eq=gr_eq+rotation[1]*0.002
+        #    if gr_eq <= 0.1:
+        #        gr_eq = 0.1
+        #    if gr_eq >= 1:
+        #        gr_eq = 1.0-delta
 
 
-        #----------------------------------------------------
+        ##----------------------------------------------------
         if rotation[0] and buttonpress[2] and keys[pygame.K_s] and keys[pygame.K_1]:
 
             rc0=rc0+rotation[0]*0.002
@@ -246,22 +303,10 @@ def main():
 
         lpar = np.asarray([ylc0,xlc0,ql0,rc0,re0,phi0])
         gpar = np.asarray([ylc0,xlc0,ql0,ap0,l_sig0,phi0])
-
-        #----------------------------------------------
-        #parameters of source galaxies.
-        #----------------------------------------------
-        g_amp = 1.0         # peak brightness value
-        g_sig = gr_sig          # Gaussian "sigma" (i.e., size)
-        g_ycen = y*2.0/nnn  # y position of center
-        g_xcen = x*2.0/nnn  # x position of center
-        g_axrat = gr_eq       # minor-to-major axis ratio
-        g_pa = gr_pa          # major-axis position angle (degrees) c.c.w. from y axis
-        spar = np.asarray([g_ycen,g_xcen,g_axrat,g_amp,g_sig,g_pa])
-        #----------------------------------------------
-
+        #--------------------------------------------------------
         g_lenses = call_lens_images(xi1,xi2,gpar,gpars)
         g_shapes = call_mmbr_images(xi1,xi2,gpar,gpars)
-        s_image,g_lensimage,critical,caustic = call_all_about_lensing(xi1,xi2,spar,lpar,lpars)
+        s_image,g_lensimage,critical,caustic = call_all_about_lensing(xi1,xi2,spar,spars,lpar,lpars)
 
         baset[:,:,0] = g_shapes*255
         baset[:,:,1] = g_shapes*255
@@ -301,20 +346,6 @@ def main():
         else:
             wf = base1+base2+base3+base4
             base = wf
-
-        #if keys[pygame.K_b]:
-        #    base = base1+base2+base3+base4
-
-        #elif keys[pygame.K_g]:
-        #    wf = base0+base1+base2
-
-        #    idx1 = wf>=base0
-        #    idx2 = wf<base0
-        #    base = base0*0
-        #    base[idx1] = wf[idx1]
-        #    base[idx2] = base0[idx2]
-        #else:
-        #    base = baset+base1+base2
 
         pygame.surfarray.blit_array(mouse_cursor,base)
         screen.blit(pygame.transform.scale(mouse_cursor,(nnw,nnw)), (0, 0))

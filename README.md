@@ -1,7 +1,7 @@
 # cython_pylensing_toys
 
 ## Introduction
-A version of my **_Glensing Toy_** with cython boosting. **_Glensing Toy_** is a software to demostrate what gravitational lensing is. By using some combination of mouse and keys, you can control the source and lenses as you will. **_Glensing Toy_** shows both the properties of sources (white ball) and the lensed images (blue arcs). Moreover, caustic and critical curves of this lensing system are shown defaultly. By press "f" or "g", you can also take a look at the the properties of lenses, including main halo and subhalos, and the images of the member galaxies of this lens. 
+This is a version of my **_Glensing Toy_** with cython boosting. **_Glensing Toy_** is a software to demostrate what gravitational lensing is. By using some combination of mouse and keys, you can control the source and lenses as you will. **_Glensing Toy_** shows both the properties of source (white ball) and the lensed images (blue arcs). Moreover, caustic and critical curves of this lensing system are shown defaultly. By pressing "f" or "g", you can also take a look at the properties of lenses, including main halo and subhalos, and the images of the member galaxies of this lens. 
 
 ![screenshot](https://raw.githubusercontent.com/linan7788626/cython_pylensing_toys/master/screenshot.png)
 
@@ -62,7 +62,7 @@ Try "f" and "g". :-)
  - [ ] More models of lenses (PIEMD, GNFW, NFW\+Hernquist, Burkert...)
  - [ ] Directly input mass sheet.
  - [ ] More satellite galaxies?
- - [ ] Realistic images of statelite galaxies.
+ - [ ] Realistic images of satellite galaxies.
 
 3. Algorithm 
  - [ ] Better caustic drawer.

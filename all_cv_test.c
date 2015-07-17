@@ -278,14 +278,6 @@ void tot_lq(double *x1, double *x2,int nx1,int nx2,double *lpar, int npars, doub
     free(lpars_i);
 }
 
-//    int clen = 0;
-//
-//	for (i = 0; i < nx1; ++i) for (j = 0; j < nx2; ++j){
-//		index = i*nx2+j;
-//		if (critical[index]>0) {
-//			clen = clen+1;
-//		}
-//	}
 void refine_critical(double * xi1,double * xi2,int nx1,int nx2,double * lpar,int npars,double * lpars, int nsubs,double * critical,int clen, int nfiner, double * yi1,double *yi2) {
 
 	int i,j,k=0,m,n,index;
@@ -327,6 +319,24 @@ void lens_images(double *xi1,double *xi2,int nx1,int nx2,double *gpar,int npars,
     free(gpars_i);
     free(g_lens_subs);
 }
+void srcs_images(double *xi1,double *xi2,int nx1,int nx2,double *gpar,int npars,double *gpars,int nsubs,double *g_srcs) {
+	int i,j,k,l,index;
+    gauss_2d(xi1,xi2,nx1,nx2,gpar,g_srcs);
+    double * gpars_i = (double *)malloc(npars*sizeof(double));
+    double * g_lens_subs = (double *)malloc(nx1*nx2*sizeof(double));
+	for (i = 0; i < nsubs; ++i) {
+		for (j = 0; j < npars; ++j) {
+			gpars_i[j] = gpars[i*npars+j];
+		}
+		gauss_2d(xi1,xi2,nx1,nx2,gpars_i,g_lens_subs);
+		for (k = 0; k < nx1; ++k) for (l = 0; l < nx2; ++l){
+			index = k*nx2+l;
+			g_srcs[index] = g_srcs[index] + g_lens_subs[index];
+		}
+	}
+    free(gpars_i);
+    free(g_lens_subs);
+}
 
 void mmbr_images(double *xi1,double *xi2,int nx1,int nx2,double *gpar,int npars,double *gpars,int nsubs,double *g_edge) {
 
@@ -360,7 +370,9 @@ void mmbr_images(double *xi1,double *xi2,int nx1,int nx2,double *gpar,int npars,
 		}
 	}
 }
-void all_about_lensing(double *xi1,double *xi2,int nx1,int nx2,double * spar,double * lpar,int npars,double * lpars,int nsubs,double *s_image,double *g_lensimage,double *critical,double *caustic){
+
+
+void all_about_lensing(double *xi1,double *xi2,int nx1,int nx2,double * spar, int nspars, double * spars, int nssubs, double * lpar,int nlpars,double * lpars,int nlsubs,double *s_image,double *g_lensimage,double *critical,double *caustic){
 	int i,j,k,l,index;
     double * al1 = (double *)malloc(sizeof(double)*nx1*nx2);
     double * al2 = (double *)malloc(sizeof(double)*nx1*nx2);
@@ -369,10 +381,10 @@ void all_about_lensing(double *xi1,double *xi2,int nx1,int nx2,double * spar,dou
     double * als1 = (double *)malloc(sizeof(double)*nx1*nx2);
     double * als2 = (double *)malloc(sizeof(double)*nx1*nx2);
 
-    double * lpars_i = (double *)malloc(sizeof(double)*npars);
-	for (i = 0; i < nsubs; ++i) {
-		for (j = 0; j < npars;++j) {
-			lpars_i[j] = lpars[i*npars+j];
+    double * lpars_i = (double *)malloc(sizeof(double)*nlpars);
+	for (i = 0; i < nlsubs; ++i) {
+		for (j = 0; j < nlpars;++j) {
+			lpars_i[j] = lpars[i*nlpars+j];
 		}
         lq_nie(xi1,xi2,nx1,nx2,lpars_i,als1,als2);
 		for (k = 0; k < nx1; k++) for (l = 0; l < nx2; l++) {
@@ -418,7 +430,8 @@ void all_about_lensing(double *xi1,double *xi2,int nx1,int nx2,double * spar,dou
     free(al1);
     free(al2);
     gauss_2d(xi1,xi2,nx1,nx2,spar,s_image);
-    gauss_2d(yi1,yi2,nx1,nx2,spar,g_lensimage);
+	srcs_images(xi1,xi2,nx1,nx2,spar,nspars,spars,nssubs,s_image);
+	srcs_images(yi1,yi2,nx1,nx2,spar,nspars,spars,nssubs,g_lensimage);
 	free(yi1);
 	free(yi2);
 //------------------------------------------------------------------------
@@ -436,7 +449,7 @@ void all_about_lensing(double *xi1,double *xi2,int nx1,int nx2,double * spar,dou
     double * yif1 = (double *)malloc(ylen*sizeof(double));
     double * yif2 = (double *)malloc(ylen*sizeof(double));
 
-	refine_critical(xi1,xi2,nx1,nx2,lpar,npars,lpars,nsubs,critical,clen,nfiner,yif1,yif2);
+	refine_critical(xi1,xi2,nx1,nx2,lpar,nlpars,lpars,nlsubs,critical,clen,nfiner,yif1,yif2);
 
     double bsz;
     bsz = dsx*nx1;
@@ -458,11 +471,3 @@ void all_about_lensing(double *xi1,double *xi2,int nx1,int nx2,double * spar,dou
 		}
 	}
 }
-
-//int main(int argc, const char *argv[])
-//{
-//	all_about_lensing(double *xi1,double *xi2,int nx1,int nx2,double * spar,double * lpar,int npars,double * lpars,int nsubs,double *s_image,double *g_lensimage,double *critical,double *caustic){
-//
-//	return 0;
-//}
-//

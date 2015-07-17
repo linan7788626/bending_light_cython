@@ -10,5 +10,6 @@ void find_critical_curve(double *mu,int nx,int ny,double* res);
 void tot_lq(double *x1, double *x2,int nx1,int nx2,double *lpar, int npars, double *lpars, int nsubs, double *y1, double *y2);
 void refine_critical(double * xi1,double * xi2,int nx1,int nx2,double * lpar,int npars,double * lpars, int nsubs,double * critical,int clen, int nfiner, double * yi1,double *yi2);
 void lens_images(double *xi1,double *xi2,int nx1,int nx2,double *gpar,int npars,double *gpars,int nsubs,double *g_lens);
+void srcs_images(double *xi1,double *xi2,int nx1,int nx2,double *gpar,int npars,double *gpars,int nsubs,double *g_srcs);
 void mmbr_images(double *xi1,double *xi2,int nx1,int nx2,double *gpar,int npars,double *gpars,int nsubs,double *g_edge);
-void all_about_lensing(double *xi1,double *xi2,int nx1,int nx2,double * spar,double * lpar,int npars,double * lpars,int nsubs,double *s_image,double *g_lensimage,double *critical,double *caustic);
+void all_about_lensing(double *xi1,double *xi2,int nx1,int nx2,double * spar, int nspars, double * spars, int nssubs, double * lpar,int nlpars,double * lpars,int nlsubs,double *s_image,double *g_lensimage,double *critical,double *caustic);
