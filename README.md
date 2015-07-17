@@ -1,7 +1,7 @@
 # cython_pylensing_toys
 
 ## Introduction
-This is a version of my **_Glensing Toy_** with cython boosting. **_Glensing Toy_** is a software to demostrate what gravitational lensing is. By using some combinations of mouse and keys, you can control the source and lenses. **_Glensing Toy_** shows both sources (white balls) and lensed images (blue arcs). Moreover, caustic and critical curves of this lensing system are shown defaultly. By pressing "f" or "g", you can also take a look at the properties of lenses, and simulated images of the lenses. 
+This is an improved version of my **_Glensing Toy_** with cython boosting. **_Glensing Toy_** is a software to demostrate what gravitational lensing is. By using some combinations of mouse and keys, you can control the source and lenses. **_Glensing Toy_** shows both sources (white balls) and lensed images (blue arcs). Moreover, caustic and critical curves of this lensing system are shown defaultly. By pressing "f" or "g", you can also take a look at the properties of lenses, and simulated images of the lenses. 
 
 
 1. Dependences:  
