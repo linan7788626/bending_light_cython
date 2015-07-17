@@ -1,7 +1,7 @@
 # cython_pylensing_toys
 
 ## Introduction
-This is a version of my **_Glensing Toy_** with cython boosting. **_Glensing Toy_** is a software to demostrate what gravitational lensing is. By using some combination of mouse and keys, you can control the source and lenses as you will. **_Glensing Toy_** shows both the properties of source (white ball) and the lensed images (blue arcs). Moreover, caustic and critical curves of this lensing system are shown defaultly. By pressing "f" or "g", you can also take a look at the properties of lenses, including main halo and subhalos, and the images of the member galaxies of this lens. 
+This is a version of my **_Glensing Toy_** with cython boosting. **_Glensing Toy_** is a software to demostrate what gravitational lensing is. By using some combinations of mouse and keys, you can control the source and lenses. **_Glensing Toy_** shows both sources (white balls) and lensed images (blue arcs). Moreover, caustic and critical curves of this lensing system are shown defaultly. By pressing "f" or "g", you can also take a look at the properties of lenses, and simulated images of the lenses. 
 
 ![screenshot](https://raw.githubusercontent.com/linan7788626/cython_pylensing_toys/master/screenshot.png)
 
@@ -53,12 +53,13 @@ Try "f" and "g". :-)
 
 ##Todo List
 1. Sources
- - [ ] More models of sources (Sersic, Moffat, Disk\+Bulge...)
+ - [x] More sources.
+ - [ ] More models of sources (Sersic, Moffat, Disk\+Bulge...).
  - [ ] Real galaxies images.
  - [ ] Arbitrary pictures (for fun).
 
 2. Lenses
- - [ ] More models of lenses (PIEMD, GNFW, NFW\+Hernquist, Burkert...)
+ - [ ] More models of lenses (PIEMD, GNFW, NFW\+Hernquist, Burkert...).
  - [ ] Directly input mass sheet.
  - [ ] More satellite galaxies?
  - [ ] Realistic images of satellite galaxies.
@@ -66,15 +67,15 @@ Try "f" and "g". :-)
 3. Algorithm 
  - [ ] Better caustic drawer.
 
-5. Time delay
+5. Time Delay
  - [ ] Implementing in twinkles branch.
 
-6. Competition Model.
+6. Competition Model
  - [ ] Input lensed images by one person.
  - [ ] Reconstruct it by another one.
  - [ ] Score the matching.
 
-7. Science Side
+7. Input and Output
  - [ ] Save the parameters of current lensing system, including lenses and sources.
  - [ ] Make the catalog of lensing system to be an input file.
  - [ ] Show all the parameters of current lensing system in real time.
