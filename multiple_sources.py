@@ -66,11 +66,11 @@ def main():
     #----------------------------------------------------
     # luminosity parameters of mainbhalo
     ap0 = 1.0
-    l_sig0 = 0.5
+    l_sig0 = 0.3
     #----------------------------------------------------
     # luminosity parameters of subhalo
-    aps = 0.4
-    l_sigs = 0.05
+    aps = 0.5
+    l_sigs = 0.1
     #----------------------------------------------------
     # Parameters of Gaussian model (luminosity distribution of lenses)
     #----------------------------------------------------

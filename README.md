@@ -1,24 +1,24 @@
 # cython_pylensing_toys
 
 ## Introduction
-This is an improved version of my **_Glensing Toy_** with cython boosting. **_Glensing Toy_** is a software to demostrate what gravitational lensing is. By using some combinations of mouse and keys, you can control the source and lenses. **_Glensing Toy_** shows both sources (white balls) and lensed images (blue arcs). Moreover, caustic and critical curves of this lensing system are shown defaultly (Figure 1). By pressing "f" or "g", you can also take a look at the properties of lenses (Figure 3), and simulated images of the lenses (Figure 2). 
+This is an improved version of my **_Glensing Toy_** with cython boosting. **_Glensing Toy_** is a software to demostrate what gravitational lensing is. By using some combinations of mouse and keys, you can control sources and lenses. **_Glensing Toy_** shows both sources (white balls) and lensed images (blue arcs). Moreover, caustic and critical curves of this lensing system are shown defaultly (Figure 1). By pressing "f" or "g", you can also take a look at the properties of lenses (Figure 3), and the simulated observation of the lensing system (Figure 2). 
 
 
 Figure 1:
-![Figure 1](https://raw.githubusercontent.com/linan7788626/cython_pylensing_toys/master/figure0.png)
+![Figure 1](figure0.png)
 Figure 2:  
-![Figure 2](https://raw.githubusercontent.com/linan7788626/cython_pylensing_toys/master/figure1.png)
+![Figure 2](figure1.png)
 Figure 3:
-![Figure 3](https://raw.githubusercontent.com/linan7788626/cython_pylensing_toys/master/figure2.png)
+![Figure 3](figure2.png)
 
 
 1. Dependences:  
 	* [Python2.7](https://www.python.org), [Numpy](http://www.numpy.org), [Pygame](http://www.pygame.org), [Cython](http://cython.github.io).
 
 2. Installation:  
-	* Clone it or download it firstly.  
+	* Clone it or download it,    
 
-	Then
+	THEN
 	```bash
 	$ python2.7 setup.py build_ext --inplace
 	```
@@ -26,7 +26,7 @@ Figure 3:
 	```bash
 	$./make_so
 	```
-3. Code Testing:  
+3. Code Running:  
 
 	```bash
 	$ python2.7 multiple_sources.py
@@ -35,8 +35,8 @@ Figure 3:
 
 ##Usage
 
-1. How to control source:  
-You can use the left click of the mouse to control the source, 
+1. How to control sources:  
+You can use the left click of the mouse to control the sources, 
 but you have to press "w" for where, "s" for size and "e" for ellipticity and orientation.
   * Holding "w" and left click, you can move you mouse to move the position of the source.
   * Holding "s" and left click, you can move you mouse vertically to change the size of the source.
