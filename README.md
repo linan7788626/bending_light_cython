@@ -76,7 +76,7 @@ Try "f" and "g". :-)
  - [ ] Better caustic drawer.
 
 5. Time Delay
- - [ ] Implementing in twinkles branch.
+ - [x] Implementing in twinkles branch.
 
 6. Competition Model
  - [ ] Input lensed images by one person.
