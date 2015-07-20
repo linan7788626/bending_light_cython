@@ -36,24 +36,27 @@ Figure 3:
 ##Usage
 
 1. How to control sources:  
-You can use the left click of the mouse to control the sources, 
-but you have to press "w" for where, "s" for size and "e" for ellipticity and orientation.
+You can use the left click of the mouse to control the sources, but first of all, you need to hold one NUM key to choose a source you want to handle. Here, "1" stands for the first source, "2~9" stand for the added sources. Defaultly, one source is hown. Furthermore,  bullets below show the details on controling the source you pick.
+  * Holding a NUM key to pick a source you want to play with. 
   * Holding "w" and left click, you can move you mouse to move the position of the source.
   * Holding "s" and left click, you can move you mouse vertically to change the size of the source.
   * Holding "e" and left click, you can move you mouse vertically to change the ellipticity of the source, or, horizontally to change the orientation of the source.
 
 2. How to control lenses:  
 You can use the right click of the mouse to control the lenses.
-Similar with the source, at the same time, you need to press one key to claim what properties you would like to change. But first of all, you need to hold one NUM key to choose a component you want to handle. Here, "1" stands for the main halo, "2~9" stand for the sub halos. For example, if you want to change the ellipticity and orientation of the main halo: please hold "1", "e" and right click, then move vertically, the ellipticity of the main halo will be changed, move horizontally, the orientation of the main halo will be changed. Because we are using Non-singular Isothermal Ellipsoid (NIE) model in this code, so when you press "s" to change the size of the lens, there are two sizes, one is the Einstein Radius (move your mouse vertically), the other one is the core radius (move your mouse horizontally). If you want to control the subhalos, please hold "2" first, then do everything you want.  
+Similar with the source, at the same time, you need to press on number key to claim which component you want to control (Here, "1" stands for the main halo, "2~9" stand for the sub halos. ) and  press one key to claim what properties you would like to change. For example, if you want to change the ellipticity and orientation of the main halo: please hold "1", "e" and right click, then move vertically, the ellipticity of the main halo will be changed, move horizontally, the orientation of the main halo will be changed. Because we are using Non-singular Isothermal Ellipsoid (NIE) model in this code, so when you press "s" to change the size of the lens, there are two sizes, one is the Einstein Radius (move your mouse vertically), the other one is the core radius (move your mouse horizontally). If you want to control the subhalos, please hold "2" first, then do everything you want.  
   * Holding a NUM key to pick a component you want to play with. 
   * Holding "w" and right click, you can move you mouse to move the position of the chosen component of the lens.
   * Holding "s" and right click, you can move you mouse vertically to change the Einstein radius of chosen component, or, horizontally to change the Core radius of the chosen component.
   * Holding "e" and right click, you can move you mouse vertically  to change the ellipticity of the chosen component, or, horizontally to change the orientation of the chosen component.
 
-3. How to add or remove satellite galaxies: 
+3. How to add or remove satellite galaxies and sources: 
 There is only one subhalo intrinsically. However, in our code, we can also add or remove subhalos if needed. So far, you can only add 8 subhalos at most.  
   * Hold "=", click the right click to add.
   * Hold "-", click the right click to remove the last added subhalo.
+Similarly, you can also control the number of sources
+  * Hold "=", click the left click to add.
+  * Hold "-", click the left click to remove the last added source.
 
 4. Toggles:  
 Try "f" and "g". :-)
