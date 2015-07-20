@@ -55,7 +55,6 @@ There is only one subhalo intrinsically. However, in our code, we can also add o
   * Hold "=", click the right click to add.
   * Hold "-", click the right click to remove the last added subhalo. 
   
-
 Similarly, you can also control the number of sources
   * Hold "=", click the left click to add.
   * Hold "-", click the left click to remove the last added source.
