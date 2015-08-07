@@ -12,6 +12,7 @@ cdef extern from "all_cv_test.h":
     void lens_images(double *xi1,double *xi2,int nx1,int nx2,double *gpar,int npars,double *gpars,int nsubs,double *g_lens)
     void mmbr_images(double *xi1,double *xi2,int nx1,int nx2,double *gpar,int npars,double *gpars,int nsubs,double *g_edge)
     void all_about_lensing(double *xi1,double *xi2,int nx1,int nx2,double * spar, int nspars, double * spars, int nssubs, double * lpar,int nlpars,double * lpars,int nlsubs,double *s_image,double *g_lensimage,double *critical,double *caustic);
+    #int _func "func"(int)
 
 def call_lens_images(np.ndarray[Dtype, ndim=2, mode="c"] xi1,
                      np.ndarray[Dtype, ndim=2, mode="c"] xi2,
