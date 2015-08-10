@@ -1,10 +1,10 @@
 #!/usr/bin/env python
 
-from libv2_cv import *
+from libv4_cv import *
 #from libv3_cv import np, call_lens_images,call_mmbr_images,call_all_about_lensing
 #from libv3_cv import *
 
-#@profile
+@profile
 def main():
     nnn = 1024
     boxsize = 4.0
@@ -92,11 +92,12 @@ def main():
     g_axrat = gr_eq       # minor-to-major axis ratio
     g_pa = gr_pa          # major-axis position angle (degrees) c.c.w. from y axis
     spar = np.asarray([g_ycen,g_xcen,g_axrat,g_amp,g_sig,g_pa])
+    spars = []
     #----------------------------------------------
 
     g_lenses = call_lens_images(xi1,xi2,gpar,gpars)
     g_shapes = call_mmbr_images(xi1,xi2,gpar,gpars)
-    s_image,g_lensimage,criticals,caustics = call_all_about_lensing(xi1,xi2,spar,lpar,lpars)
+    s_image,g_lensimage,criticals,caustics = call_all_about_lensing(xi1,xi2,spar,spars,lpar,lpars)
 
     baset[:,:,0] = g_shapes*255
     baset[:,:,1] = g_shapes*255
