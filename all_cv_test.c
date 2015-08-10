@@ -1,7 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
+#include <omp.h>
 
+//--------------------------------------------------------------------
 int sign(double x) {
 	if (x > 0) return 1;
 	if (x < 0) return -1;
@@ -33,7 +35,7 @@ void forward_cic(double *cic_in,double *x_in,double *y_in,double bsx,double bsy,
         ip = (int)xp;
         jp = (int)yp;
 
-		if (ip<0||ip>(nx-2)||jp<0||jp>(ny-2)) continue;
+		  if (ip<0||ip>(nx-2)||jp<0||jp>(ny-2)) continue;
         wx = 1.0-(xp-(double)ip);
         wy = 1.0-(yp-(double)jp);
 
@@ -44,7 +46,64 @@ void forward_cic(double *cic_in,double *x_in,double *y_in,double bsx,double bsy,
     }
 }
 
-//--------------------------------------------------------------------
+
+//void forward_cic(double *cic_in,double *x_in,double *y_in,double bsx,double bsy,int nx,int ny,int np,double *cic_out) {
+//    double dx = bsx/nx;
+//    double dy = bsy/ny;
+//    double xc = bsx/2.0;
+//    double yc = bsy/2.0;
+//
+//	int i,j;
+//	int i1,j1,m;
+//	double xp,yp,zp;
+//	double ww1,ww2,ww3,ww4,wx,wy;
+//	//double ds = 1.0;///(dx*dy);
+//
+//#pragma omp parallel num_threads(1)	\
+//	shared(x_in,y_in,cic_in,np,xc,yc,dx,dy,nx,ny,cic_out) \
+//	private(m,i1,j1,xp,yp,zp,wx,wy,ww1,ww2,ww3,ww4)
+//	{
+//	double *out_sp;
+//	out_sp = (double *)calloc(nx*ny,sizeof(double));
+//	#pragma omp for schedule(dynamic,16)
+//
+//		for(m=0;m<np;m++) {
+//
+//			xp = (x_in[m]+xc)/dx-0.5;
+//			yp = (y_in[m]+yc)/dy-0.5;
+//			zp = cic_in[m];
+//
+//			i1 = (int)xp;
+//			j1 = (int)yp;
+//
+//			//if (i1<0||i1>nx-2||j1<0||j1>ny-2) continue;
+//			if (i1<0||i1>nx-2||j1<0||j1>ny-2) continue;
+//
+//			wx = 1.-(xp-(double)(i1));
+//			wy = 1.-(yp-(double)(j1));
+//
+//			ww1 = wx*wy*zp;
+//			ww2 = wx*(1.0-wy)*zp;
+//			ww3 = (1.0-wx)*wy*zp;
+//			ww4 = (1.0-wx)*(1.0-wy)*zp;
+//
+//
+//			out_sp[i1*nx+j1] += ww1;
+//			out_sp[i1*nx+(j1+1)] += ww2;
+//			out_sp[(i1+1)*nx+j1] += ww3;
+//			out_sp[(i1+1)*nx+(j1+1)] += ww4;
+//		}
+//	#pragma omp critical
+//	{
+//		for(i=0;i<nx;i++) for(j=0;j<ny;j++) {
+//			cic_out[i*ny+j] += out_sp[i*ny+j];
+//		}
+//	}
+//	free(out_sp);
+//	}
+//}
+//
+////--------------------------------------------------------------------
 void lanczos_diff_2_tag(double *m1, double *m2, double *m11, double *m12, double *m21, double *m22, double Dcell, int Ncc, int dif_tag) {
     int i_m3,i_p3,j_m3,j_p3,i_m2,i_p2,j_m2,j_p2,i_m1,j_m1,i_p1,j_p1,i,j;
     int index;

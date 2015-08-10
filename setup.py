@@ -18,7 +18,9 @@ ext = Extension("libv4_cv", ["./v4_cv.pyx","./all_cv_test.c"],
     include_dirs=[np.get_include(),
                   "./"],
     library_dirs=["./"],
-    libraries=["m"]
+    libraries=["m"],
+    extra_compile_args=['-fopenmp'],
+    extra_link_args=['-fopenmp']
 )
 
 setup(ext_modules=[ext],
