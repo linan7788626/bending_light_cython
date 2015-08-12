@@ -5,11 +5,11 @@ This is an improved version of my **_Glensing Toy_** with cython boosting. **_Gl
 
 
 Figure 1:
-![Figure 1](figure0.png)
+![Figure 1](./screen_shots/figure0.png)
 Figure 2:  
-![Figure 2](figure1.png)
+![Figure 2](./screen_shots/figure1.png)
 Figure 3:
-![Figure 3](figure2.png)
+![Figure 3](./screen_shots/figure2.png)
 
 
 1. Dependences:  

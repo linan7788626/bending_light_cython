@@ -3,13 +3,12 @@
 import pygame
 from pygame.locals import *
 from sys import exit
-#from libv3_cv import *
-#from libv2_cv import *
-from libv4_cv import *
+from libs import libv4_cv as glv4
+import numpy as np
 
 def main():
-    nnn = 1024
-    nnw = 1024
+    nnn = 512
+    nnw = 768
     boxsize = 4.0
     dsx = boxsize/nnn
     xi1 = np.linspace(-boxsize/2.0,boxsize/2.0-dsx,nnn)+0.5*dsx
@@ -17,7 +16,7 @@ def main():
     xi1,xi2 = np.meshgrid(xi1,xi2)
 
     pygame.init()
-    FPS = 60
+    FPS = 30
     fpsClock = pygame.time.Clock()
 
     screen = pygame.display.set_mode((nnw, nnw), pygame.RESIZABLE, 32)
@@ -304,9 +303,9 @@ def main():
         lpar = np.asarray([ylc0,xlc0,ql0,rc0,re0,phi0])
         gpar = np.asarray([ylc0,xlc0,ql0,ap0,l_sig0,phi0])
         #--------------------------------------------------------
-        g_lenses = call_lens_images(xi1,xi2,gpar,gpars)
-        g_shapes = call_mmbr_images(xi1,xi2,gpar,gpars)
-        s_image,g_lensimage,critical,caustic = call_all_about_lensing(xi1,xi2,spar,spars,lpar,lpars)
+        g_lenses = glv4.call_lens_images(xi1,xi2,gpar,gpars)
+        g_shapes = glv4.call_mmbr_images(xi1,xi2,gpar,gpars)
+        s_image,g_lensimage,critical,caustic = glv4.call_all_about_lensing(xi1,xi2,spar,spars,lpar,lpars)
 
         baset[:,:,0] = g_shapes*255
         baset[:,:,1] = g_shapes*255

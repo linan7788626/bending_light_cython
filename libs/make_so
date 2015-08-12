@@ -1,3 +1,4 @@
 #gcc -Wall -fPIC -c ./cv_test.c
 #gcc -shared ./cv_test.o -o ./libcv_test.so
+#CC=gcc-mp-4.9 python2.7 setup.py build_ext --inplace
 python2.7 setup.py build_ext --inplace
