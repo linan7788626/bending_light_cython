@@ -20,11 +20,13 @@ Figure 3:
 
 	THEN
 	```bash
+	$ cd libs
 	$ python2.7 setup.py build_ext --inplace
 	```
 	OR
 	```bash
-	$./make_so
+	$ cd libs
+	$ ./make_so
 	```
 3. Code Running:  
 
@@ -69,7 +71,7 @@ Try "f" and "g". :-)
 
 2. Lenses
  - [ ] More models of lenses (PIEMD, GNFW, NFW\+Hernquist, Burkert...).
- - [ ] Directly input mass sheet.
+ - [x] Directly input mass sheet.
  - [ ] More satellite galaxies?
  - [ ] Realistic images of satellite galaxies.
 
