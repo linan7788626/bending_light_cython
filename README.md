@@ -14,6 +14,9 @@ Figure 3:
 
 1. Dependences:  
 	* [Python2.7](https://www.python.org), [Numpy](http://www.numpy.org), [Pygame](http://www.pygame.org), [Cython](http://cython.github.io).
+	* If you are using Linux, you can install all these packages using the default package manager, for example, apt-get for Debian and Ubuntu, yum for Fedora and Redhat,  pacman for Archlinux and so on.
+	* If you are using Mac, I would recommend [Macports](https://www.macports.org) or [Homebrew](http://brew.sh) to install these packages.
+	* I will upload a bash script to install all these packages from sources later.
 
 2. Installation:  
 	* Clone it or download it,    
@@ -31,6 +34,7 @@ Figure 3:
 3. Code Running:  
 
 	```bash
+	$ cd ../
 	$ python2.7 multiple_sources.py
 	```
 
@@ -54,9 +58,9 @@ Similar with the source, at the same time, you need to press on number key to cl
 
 3. How to add or remove satellite galaxies and sources: 
 There is only one subhalo intrinsically. However, in our code, we can also add or remove subhalos if needed. So far, you can only add 8 subhalos at most. Similarly, you can also control the number of sources.
-  * Hold "=", click the right click to add.
+  * Hold "=", click the right click to add a subhalo.
   * Hold "-", click the right click to remove the last added subhalo. 
-  * Hold "=", click the left click to add.
+  * Hold "=", click the left click to add a source.
   * Hold "-", click the left click to remove the last added source.
 
 4. Toggles:  
