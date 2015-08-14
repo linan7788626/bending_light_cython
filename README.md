@@ -27,6 +27,7 @@ Figure 3:
 	```bash
 	$ sudo ln /opt/local/lib/libSDL-1.2.0.dylib /usr/local/lib/libSDL-1.2.0.dylib
 	```
+	* I am trying to make a standalone APP for Mac using [py2app](http://pythonhosted.org/py2app/), but still under developing.
 
 2. Installation:  
 	* Clone it or download it,    
