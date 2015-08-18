@@ -9,7 +9,8 @@ from setuptools import setup
 
 APP = ['multiple_sources.py']
 DATA_FILES = []
-OPTIONS = {'argv_emulation': True}
+OPTIONS = {'argv_emulation': True,
+ 'iconfile': '/Users/uranus/GitHub/cython_pylensing_toys/icons/222.icns'}
 
 setup(
     app=APP,
