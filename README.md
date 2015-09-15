@@ -81,7 +81,7 @@ Try "f" and "g". :-)
 ##Todo List
 1. Sources
  - [x] More sources.
- - [ ] More models of sources (Sersic, Moffat, Disk\+Bulge...).
+ - [x] More models of sources (Sersic, Moffat, Disk\+Bulge...).
  - [ ] Real galaxies images.
  - [ ] Arbitrary pictures (for fun).
 
