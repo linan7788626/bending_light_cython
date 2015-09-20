@@ -86,7 +86,7 @@ Try "f" and "g". :-)
  - [ ] Arbitrary pictures (for fun).
 
 2. Lenses
- - [ ] More models of lenses (PIEMD, GNFW, NFW\+Hernquist, Burkert...).
+ - [x] More models of lenses (PIEMD, GNFW, NFW\+Hernquist, Burkert...).
  - [x] Directly input mass sheet.
  - [ ] More satellite galaxies?
  - [ ] Realistic images of satellite galaxies.
