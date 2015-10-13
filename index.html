@@ -28,137 +28,171 @@
     <div id="content-wrapper">
       <div class="inner clearfix">
         <section id="main-content">
-          <h3>
-<a id="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages" aria-hidden="true"><span class="octicon octicon-link"></span></a>Introduction</h3>
+          <h1>
+<a id="introduction" class="anchor" href="#introduction" aria-hidden="true"><span class="octicon octicon-link"></span></a>Introduction</h1>
 
-<p>
-## Introduction
-This is an improved version of my **_Glensing Toy_** with **_Cython_** boosting. **_Glensing Toy_** is a software to demonstrate what gravitational lensing is. By using some combinations of mouse and keys, you can control sources and lenses. **_Glensing Toy_** shows both sources (white balls) and lensed images (blue arcs). Moreover, caustic and critical curves of this lensing system are shown by default (Figure 1). By pressing "f" or "g", you can also take a look at the properties of lenses (Figure 3), and the simulated observation of the lensing system (Figure 2). 
+<p>This is an improved version of my <strong><em>Glensing Toy</em></strong> with <strong><em>Cython</em></strong> boosting. <strong><em>Glensing Toy</em></strong> is a software to demonstrate what gravitational lensing is. By using some combinations of mouse and keys, you can control sources and lenses. <strong><em>Glensing Toy</em></strong> shows both sources (white balls) and lensed images (blue arcs). Moreover, caustic and critical curves of this lensing system are shown by default (Figure 1). By pressing "f" or "g", you can also take a look at the properties of lenses (Figure 3), and the simulated observation of the lensing system (Figure 2). </p>
 
-
-Figure 1:
-![Figure 1](./screen_shots/figure0.png)
-Figure 2:  
-![Figure 2](./screen_shots/figure1.png)
+<p>Figure 1:
+<img src="./screen_shots/figure0.png" alt="Figure 1">
+Figure 2:<br>
+<img src="./screen_shots/figure1.png" alt="Figure 2">
 Figure 3:
-![Figure 3](./screen_shots/figure2.png)
+<img src="./screen_shots/figure2.png" alt="Figure 3"></p>
 
+<h1>
+<a id="installation" class="anchor" href="#installation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installation</h1>
 
-1. Dependences:  
-	* [Python2.7](https://www.python.org), [Numpy](http://www.numpy.org), [Pygame](http://www.pygame.org), [Cython](http://cython.github.io) and [SDL](https://www.libsdl.org).
-	* If you are using Linux, you can install all these packages using the default package manager, for example, apt-get for Debian and Ubuntu, yum for Fedora and Redhat,  pacman for Archlinux and so on.
-	* If you are using Mac, I would recommend [Macports](https://www.macports.org) or [Homebrew](http://brew.sh) to install these packages.
-	* My favorite way to install all the dependences is using [Anaconda](https://store.continuum.io/cshop/anaconda/). Once you installed Anaconda, the environment of python2.7 is ready.
+<ol>
+<li>
+<p>Dependences:  </p>
 
-	THEN
+<ul>
+<li>
+<a href="https://www.python.org">Python2.7</a>, <a href="http://www.numpy.org">Numpy</a>, <a href="http://www.pygame.org">Pygame</a>, <a href="http://cython.github.io">Cython</a> and <a href="https://www.libsdl.org">SDL</a>.</li>
+<li>If you are using Linux, you can install all these packages using the default package manager, for example, apt-get for Debian and Ubuntu, yum for Fedora and Redhat,  pacman for Archlinux and so on.</li>
+<li>If you are using Mac, I would recommend <a href="https://www.macports.org">Macports</a> or <a href="http://brew.sh">Homebrew</a> to install these packages.</li>
+<li>My favorite way to install all the dependences is using <a href="https://store.continuum.io/cshop/anaconda/">Anaconda</a>. Once you installed Anaconda, the environment of python2.7 is ready.</li>
+</ul>
 
-	```bash
-	$ conda install -c https://conda.binstar.org/quasiben pygame
-	```
-	If your SDL is not installed in /usr/local/lib, you need to link it to the default directory.
-	```bash
-	$ sudo ln /opt/local/lib/libSDL-1.2.0.dylib /usr/local/lib/libSDL-1.2.0.dylib
-	```
-	* I have got the first version of a standalone APP for Mac using [py2app](http://pythonhosted.org/py2app/). You can find it here: [Lensing Toy](https://www.dropbox.com/s/uuaf13nfcoet44c/Lensing%20Toy.zip?dl=0).
-	
+<p>THEN</p>
 
-2. Installation:  
-	* Clone it or download it,    
+<div class="highlight highlight-source-shell"><pre>$ conda install -c https://conda.binstar.org/quasiben pygame</pre></div>
 
-	THEN
-	```bash
-	$ cd libs
-	$ python2.7 setup.py build_ext --inplace
-	```
-	OR
-	```bash
-	$ cd libs
-	$ ./make_so
-	```
-3. Code Running:  
+<p>If your SDL is not installed in /usr/local/lib, you need to link it to the default directory.</p>
 
-	```bash
-	$ cd ../
-	$ python2.7 multiple_sources.py
-	```
-</p>
+<div class="highlight highlight-source-shell"><pre>$ sudo ln /opt/local/lib/libSDL-1.2.0.dylib /usr/local/lib/libSDL-1.2.0.dylib</pre></div>
 
-<h3>
-<a id="designer-templates" class="anchor" href="#designer-templates" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage</h3>
+<ul>
+<li>I have got the first version of a standalone APP for Mac using <a href="http://pythonhosted.org/py2app/">py2app</a>. You can find it here: <a href="https://www.dropbox.com/s/uuaf13nfcoet44c/Lensing%20Toy.zip?dl=0">Lensing Toy</a>.</li>
+</ul>
+</li>
+<li>
+<p>Installation:  </p>
 
-<p>
-##Usage
+<ul>
+<li>Clone it or download it,<br>
+</li>
+</ul>
 
-1. How to control sources:  
-You can use the left click of the mouse to control the sources, but first of all, you need to hold one NUM key to choose a source you want to handle. Here, "1" stands for the first source, "2~9" stand for the added sources. Defaultly, one source is hown. Furthermore,  bullets below show the details on controling the source you pick.
-  * Holding a NUM key to pick a source you want to play with. 
-  * Holding "w" and left click, you can move you mouse to move the position of the source.
-  * Holding "s" and left click, you can move you mouse vertically to change the size of the source.
-  * Holding "e" and left click, you can move you mouse vertically to change the ellipticity of the source, or, horizontally to change the orientation of the source.
+<p>THEN</p>
 
-2. How to control lenses:  
+<div class="highlight highlight-source-shell"><pre>$ <span class="pl-c1">cd</span> libs
+$ python2.7 setup.py build_ext --inplace</pre></div>
+
+<p>OR</p>
+
+<div class="highlight highlight-source-shell"><pre>$ <span class="pl-c1">cd</span> libs
+$ ./make_so</pre></div>
+</li>
+<li>
+<p>Code Running:  </p>
+
+<div class="highlight highlight-source-shell"><pre>$ <span class="pl-c1">cd</span> ../
+$ python2.7 multiple_sources.py</pre></div>
+</li>
+</ol>
+
+<h1>
+<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage</h1>
+
+<ol>
+<li>
+<p>How to control sources:<br>
+You can use the left click of the mouse to control the sources, but first of all, you need to hold one NUM key to choose a source you want to handle. Here, "1" stands for the first source, "2~9" stand for the added sources. Defaultly, one source is hown. Furthermore,  bullets below show the details on controling the source you pick.</p>
+
+<ul>
+<li>Holding a NUM key to pick a source you want to play with. </li>
+<li>Holding "w" and left click, you can move you mouse to move the position of the source.</li>
+<li>Holding "s" and left click, you can move you mouse vertically to change the size of the source.</li>
+<li>Holding "e" and left click, you can move you mouse vertically to change the ellipticity of the source, or, horizontally to change the orientation of the source.</li>
+</ul>
+</li>
+<li>
+<p>How to control lenses:<br>
 You can use the right click of the mouse to control the lenses.
-Similar with the source, at the same time, you need to press on number key to claim which component you want to control (Here, "1" stands for the main halo, "2~9" stand for the sub halos. ) and  press one key to claim what properties you would like to change. For example, if you want to change the ellipticity and orientation of the main halo: please hold "1", "e" and right click, then move vertically, the ellipticity of the main halo will be changed, move horizontally, the orientation of the main halo will be changed. Because we are using Non-singular Isothermal Ellipsoid (NIE) model in this code, so when you press "s" to change the size of the lens, there are two sizes, one is the Einstein Radius (move your mouse vertically), the other one is the core radius (move your mouse horizontally). If you want to control the subhalos, please hold "2" first, then do everything you want.  
-  * Holding a NUM key to pick a component you want to play with. 
-  * Holding "w" and right click, you can move you mouse to move the position of the chosen component of the lens.
-  * Holding "s" and right click, you can move you mouse vertically to change the Einstein radius of chosen component, or, horizontally to change the Core radius of the chosen component.
-  * Holding "e" and right click, you can move you mouse vertically  to change the ellipticity of the chosen component, or, horizontally to change the orientation of the chosen component.
+Similar with the source, at the same time, you need to press on number key to claim which component you want to control (Here, "1" stands for the main halo, "2~9" stand for the sub halos. ) and  press one key to claim what properties you would like to change. For example, if you want to change the ellipticity and orientation of the main halo: please hold "1", "e" and right click, then move vertically, the ellipticity of the main halo will be changed, move horizontally, the orientation of the main halo will be changed. Because we are using Non-singular Isothermal Ellipsoid (NIE) model in this code, so when you press "s" to change the size of the lens, there are two sizes, one is the Einstein Radius (move your mouse vertically), the other one is the core radius (move your mouse horizontally). If you want to control the subhalos, please hold "2" first, then do everything you want.  </p>
 
-3. How to add or remove satellite galaxies and sources: 
-There is only one subhalo intrinsically. However, in our code, we can also add or remove subhalos if needed. So far, you can only add 8 subhalos at most. Similarly, you can also control the number of sources.
-  * Hold "=", click the right click to add a subhalo.
-  * Hold "-", click the right click to remove the last added subhalo. 
-  * Hold "=", click the left click to add a source.
-  * Hold "-", click the left click to remove the last added source.
+<ul>
+<li>Holding a NUM key to pick a component you want to play with. </li>
+<li>Holding "w" and right click, you can move you mouse to move the position of the chosen component of the lens.</li>
+<li>Holding "s" and right click, you can move you mouse vertically to change the Einstein radius of chosen component, or, horizontally to change the Core radius of the chosen component.</li>
+<li>Holding "e" and right click, you can move you mouse vertically  to change the ellipticity of the chosen component, or, horizontally to change the orientation of the chosen component.</li>
+</ul>
+</li>
+<li>
+<p>How to add or remove satellite galaxies and sources: 
+There is only one subhalo intrinsically. However, in our code, we can also add or remove subhalos if needed. So far, you can only add 8 subhalos at most. Similarly, you can also control the number of sources.</p>
 
-4. Toggles:  
-Try "f" and "g". :-)
-</p>
+<ul>
+<li>Hold "=", click the right click to add a subhalo.</li>
+<li>Hold "-", click the right click to remove the last added subhalo. </li>
+<li>Hold "=", click the left click to add a source.</li>
+<li>Hold "-", click the left click to remove the last added source.</li>
+</ul>
+</li>
+<li><p>Toggles:<br>
+Try "f" and "g". :-)</p></li>
+</ol>
 
-<h3>
-<a id="creating-pages-manually" class="anchor" href="#creating-pages-manually" aria-hidden="true"><span class="octicon octicon-link"></span></a>Todo List</h3>
+<h1>
+<a id="todo-list" class="anchor" href="#todo-list" aria-hidden="true"><span class="octicon octicon-link"></span></a>Todo List</h1>
 
-<p>
-##Todo List
-1. Sources
- - [x] More sources.
- - [x] More models of sources (Sersic, Moffat, Disk\+Bulge...).
- - [ ] Real galaxies images.
- - [ ] Arbitrary pictures (for fun).
+<ol>
+<li>
+<p>Sources</p>
 
-2. Lenses
- - [x] More models of lenses (PIEMD, GNFW, NFW\+Hernquist, Burkert...).
- - [x] Directly input mass sheet.
- - [ ] More satellite galaxies?
- - [ ] Realistic images of satellite galaxies.
+<ul>
+<li>[x] More sources.</li>
+<li>[x] More models of sources (Sersic, Moffat, Disk+Bulge...).</li>
+<li>[ ] Real galaxies images.</li>
+<li>[ ] Arbitrary pictures (for fun).</li>
+</ul>
+</li>
+<li>
+<p>Lenses</p>
 
-3. Algorithm 
- - [ ] Anti-Aliasing.
- - [ ] Better caustic drawer.
+<ul>
+<li>[x] More models of lenses (PIEMD, GNFW, NFW+Hernquist, Burkert...).</li>
+<li>[x] Directly input mass sheet.</li>
+<li>[ ] More satellite galaxies?</li>
+<li>[ ] Realistic images of satellite galaxies.</li>
+</ul>
+</li>
+<li>
+<p>Algorithm </p>
 
-5. Time Delay
- - [x] Implementing in twinkles branch.
+<ul>
+<li>[ ] Anti-Aliasing.</li>
+<li>[ ] Better caustic drawer.</li>
+</ul>
+</li>
+<li>
+<p>Time Delay</p>
 
-6. Competition Model
- - [ ] Input lensed images by one person.
- - [ ] Reconstruct it by another one.
- - [ ] Score the matching.
+<ul>
+<li>[x] Implementing in twinkles branch.</li>
+</ul>
+</li>
+<li>
+<p>Competition Model</p>
 
-7. Input and Output
- - [ ] Save the parameters of current lensing system, including lenses and sources.
- - [ ] Make the catalog of lensing system to be an input file.
- - [ ] Show all the parameters of current lensing system in real time.
-</p>
+<ul>
+<li>[ ] Input lensed images by one person.</li>
+<li>[ ] Reconstruct it by another one.</li>
+<li>[ ] Score the matching.</li>
+</ul>
+</li>
+<li>
+<p>Input and Output</p>
 
-<h3>
-<a id="authors-and-contributors" class="anchor" href="#authors-and-contributors" aria-hidden="true"><span class="octicon octicon-link"></span></a>Authors and Contributors</h3>
-
-<p>paragraph 4</p>
-
-<h3>
-<a id="support-or-contact" class="anchor" href="#support-or-contact" aria-hidden="true"><span class="octicon octicon-link"></span></a>Support or Contact</h3>
-
-<p>paragraph 5</p>
+<ul>
+<li>[ ] Save the parameters of current lensing system, including lenses and sources.</li>
+<li>[ ] Make the catalog of lensing system to be an input file.</li>
+<li>[ ] Show all the parameters of current lensing system in real time.</li>
+</ul>
+</li>
+</ol>
         </section>
 
         <aside id="sidebar">
