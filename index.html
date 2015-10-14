@@ -19,7 +19,7 @@
   <body>
     <header>
       <div class="inner">
-        <h1>Bending Light: Tools for Exploring Gravitational Lensing</h1>
+        <h1>Bending Light: Tools for Visualizing Strong Gravitational Lensing</h1>
         <h2></h2>
         <a href="https://github.com/linan7788626/cython_pylensing_toys" class="button"><small>View project on</small> GitHub</a>
       </div>
@@ -31,14 +31,14 @@
           <h3>
 <a id="introduction" class="anchor" href="#introduction" aria-hidden="true"><span class="octicon octicon-link"></span></a>Introduction</h3>
 
-<p>This is an improved version of my <strong><em>Glensing Toy</em></strong> with <strong><em>Cython</em></strong> boosting. <strong><em>Glensing Toy</em></strong> is a software to demonstrate what gravitational lensing is. By using some combinations of mouse and keys, you can control sources and lenses. <strong><em>Glensing Toy</em></strong> shows both sources (white balls) and lensed images (blue arcs). Moreover, caustic and critical curves of this lensing system are shown by default (Figure 1). By pressing "f" or "g", you can also take a look at the properties of lenses (Figure 3), and the simulated observation of the lensing system (Figure 2). </p>
+<p><strong><em>Strong gravitational lensing</em></strong> is a remarkable phenomenon that produces some of the most striking images ever recorded by telescopes. The software tools that you can download here visually demonstrate what gravitational lensing is. By using a combination of mouse and keystrokes, you can build and explore a wide range of strong lensing scenarios. Extensive control of both the background sources and foreground lenses is offered. The software visualizes both the background sources and their strongly lensed images. Moreover, the caustic and critical curves of the lensing system are shown by default (Figure 1). The tool can visualize the properties of lenses (Figure 2), and the simulated observation of the lensing system (Figure 3). </p>
 
 <p>Figure 1:
 <img src="./images/figure0.png" alt="Figure 1">
 Figure 2:<br>
-<img src="./images/figure1.png" alt="Figure 2">
+<img src="./images/figure2.png" alt="Figure 2">
 Figure 3:
-<img src="./images/figure2.png" alt="Figure 3"></p>
+<img src="./images/figure1.png" alt="Figure 3"></p>
 
 <h3>
 <a id="installation" class="anchor" href="#installation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installation</h3>
@@ -52,7 +52,7 @@ Figure 3:
 <a href="https://www.python.org">Python2.7</a>, <a href="http://www.numpy.org">Numpy</a>, <a href="http://www.pygame.org">Pygame</a>, <a href="http://cython.github.io">Cython</a> and <a href="https://www.libsdl.org">SDL</a>.</li>
 <li>If you are using Linux, you can install all these packages using the default package manager, for example, apt-get for Debian and Ubuntu, yum for Fedora and Redhat,  pacman for Archlinux and so on.</li>
 <li>If you are using Mac, I would recommend <a href="https://www.macports.org">Macports</a> or <a href="http://brew.sh">Homebrew</a> to install these packages.</li>
-<li>My favorite way to install all the dependences is using <a href="https://store.continuum.io/cshop/anaconda/">Anaconda</a>. Once you installed Anaconda, the environment of python2.7 is ready.</li>
+<li>My favorite way to install all the dependences is using <a href="https://store.continuum.io/cshop/anaconda/">Anaconda</a>. Once you have installed Anaconda, the environment of python2.7 is ready.</li>
 </ul>
 
 <p>THEN</p>
@@ -98,98 +98,83 @@ $ python2.7 multiple_sources.py</pre></div>
 
 <ol>
 <li>
-<p>How to control sources:<br>
-You can use the left click of the mouse to control the sources, but first of all, you need to hold one NUM key to choose a source you want to handle. Here, "1" stands for the first source, "2~9" stand for the added sources. Defaultly, one source is hown. Furthermore,  bullets below show the details on controling the source you pick.</p>
+<p>Sources:<br>
+Sources are represented as 2D Gaussian distributions, and can be altered in size, shape, orientation, and placement. Multiple sources can also be placed (up to 9). Sources are controlled with the left mouse button, with a number key (1-9) to select the particular source. Here, "1" stands for the first source enabled by default, "2-9" stand for additional sources that may be added. The control details are listed below: as an example, to move the position of source 1, click and hold "1" and "w" and click the left mouse key to drag and place that source.</p>
 
 <ul>
-<li>Holding a NUM key to pick a source you want to play with. </li>
-<li>Holding "w" and left click, you can move you mouse to move the position of the source.</li>
-<li>Holding "s" and left click, you can move you mouse vertically to change the size of the source.</li>
-<li>Holding "e" and left click, you can move you mouse vertically to change the ellipticity of the source, or, horizontally to change the orientation of the source.</li>
+<li>Hold the NUM key to pick the source you want to manipulate. </li>
+<li>Hold "w" and the left mouse button to move the <strong>position</strong> of the source.</li>
+<li>Hold "s" and the left mouse button and move the mouse vertically to change the <strong>size</strong> of the source.</li>
+<li>Hold "e" and the left mouse button and move the mouse vertically to change the <strong>ellipticity</strong> of the source, or move the mouse horizontally to change the <strong>orientation</strong> of the source.</li>
+<li>To <strong>add</strong> a new source (up to 9 total) hold "=" and left mouse click at the desired source location</li>
 </ul>
 </li>
 <li>
-<p>How to control lenses:<br>
-You can use the right click of the mouse to control the lenses.
-Similar with the source, at the same time, you need to press on number key to claim which component you want to control (Here, "1" stands for the main halo, "2~9" stand for the sub halos. ) and  press one key to claim what properties you would like to change. For example, if you want to change the ellipticity and orientation of the main halo: please hold "1", "e" and right click, then move vertically, the ellipticity of the main halo will be changed, move horizontally, the orientation of the main halo will be changed. Because we are using Non-singular Isothermal Ellipsoid (NIE) model in this code, so when you press "s" to change the size of the lens, there are two sizes, one is the Einstein Radius (move your mouse vertically), the other one is the core radius (move your mouse horizontally). If you want to control the subhalos, please hold "2" first, then do everything you want.  </p>
-
-<ul>
-<li>Holding a NUM key to pick a component you want to play with. </li>
-<li>Holding "w" and right click, you can move you mouse to move the position of the chosen component of the lens.</li>
-<li>Holding "s" and right click, you can move you mouse vertically to change the Einstein radius of chosen component, or, horizontally to change the Core radius of the chosen component.</li>
-<li>Holding "e" and right click, you can move you mouse vertically  to change the ellipticity of the chosen component, or, horizontally to change the orientation of the chosen component.</li>
-</ul>
+<p>Lenses:<br>
+Lenses are modeled as non-singular isothermal ellipsoids (NIEs). For simplicity, lenses are visualized as 2D Gaussian light distributions. Lenses can be altered in "size" (see below), projected shape, orientation, and placement. Like sources, up to 9 lenses may be placed, and individually controlled. Lenses are controlled using the right mouse button, rather than the left as for sources. Controls are identical, except for the "size" control. Because we are using an NIE model in this code, when you press "s" to change the size of the lens, there are two sizes: one is the Einstein radius (move the mouse vertically), the other one is the core radius (move the mouse horizontally).</p>
 </li>
-<li>
-<p>How to add or remove satellite galaxies and sources: 
-There is only one subhalo intrinsically. However, in our code, we can also add or remove subhalos if needed. So far, you can only add 8 subhalos at most. Similarly, you can also control the number of sources.</p>
 
-<ul>
-<li>Hold "=", click the right click to add a subhalo.</li>
-<li>Hold "-", click the right click to remove the last added subhalo. </li>
-<li>Hold "=", click the left click to add a source.</li>
-<li>Hold "-", click the left click to remove the last added source.</li>
-</ul>
-</li>
-<li><p>Toggles:<br>
+<li><p>Visualization Toggles:<br>
 Try "f" and "g". :-)</p></li>
 </ol>
 
 <h3>
 <a id="todo-list" class="anchor" href="#todo-list" aria-hidden="true"><span class="octicon octicon-link"></span></a>Todo List</h3>
+Many of the features listed below have been developed, but not yet released in the basic toolkit.
+The next version of this software will include these many additional tools.
 
 <ol>
 <li>
 <p>Sources</p>
 
 <ul>
-<li>[x] More sources.</li>
-<li>[x] More models of sources (Sersic, Moffat, Disk+Bulge...).</li>
-<li>[x] Real galaxies images.</li>
-<li>[x] Arbitrary pictures (for fun).</li>
+<li>[DONE] More sources.</li>
+<li>[DONE] More models of sources (Sersic, Moffat, Disk+Bulge...).</li>
+<li>[DONE] Real galaxies images.</li>
+<li>[DONE] Arbitrary pictures (for fun).</li>
 </ul>
 </li>
 <li>
 <p>Lenses</p>
 
 <ul>
-<li>[x] More models of lenses (PIEMD, GNFW, NFW+Hernquist, Burkert...).</li>
-<li>[x] Directly input mass sheet.</li>
-<li>[x] More satellite galaxies?</li>
-<li>[-] Realistic images of satellite galaxies.</li>
+<li>[DONE] More models of lenses (PIEMD, GNFW, NFW+Hernquist, Burkert...).</li>
+<li>[DONE] Directly input mass sheet.</li>
+<li>[DONE] More satellite galaxies?</li>
+<li>[-------] Realistic images of satellite galaxies.</li>
 </ul>
 </li>
 <li>
-<p>Algorithm </p>
+<p>Algorithm</p>
 
 <ul>
-<li>[-] Anti-Aliasing.</li>
-<li>[-] Better caustic drawer.</li>
+<li>[-------] Anti-Aliasing.</li>
+<li>[-------] Better caustic rendering.</li>
 </ul>
 </li>
 <li>
-<p>Time Delay</p>
+<p>Time Delays</p>
 
 <ul>
-<li>[x] Implementing in twinkles branch.</li>
+<li>[DONE] Implement full time delay calculations, useful for varying sources.</li>
+<li>[DONE] Animate varying sources, with time delays, in output visualizations.</li>
 </ul>
 </li>
 <li>
-<p>Competition Model</p>
-
+<p>Competitive Lensing - Modeling and Reconstruction!</p>
 <ul>
-<li>[-] Input lensed images by one person.</li>
-<li>[-] Reconstruct it by another one.</li>
-<li>[-] Score the matching.</li>
+<li>[-------] Input lensed images by one person.</li>
+<li>[-------] Reconstruct it by a second person.</li>
+<li>[-------] Score the match.</li>
 </ul>
 </li>
 <li>
-<p>Input and Output</p>
+<p>Inputs and Outputs</p>
 
 <ul>
-<li>[-] Save the parameters of current lensing system, including lenses and sources.</li>
-<li>[-] Make the catalog of lensing system to be an input file.</li>
-<li>[-] Show all the parameters of current lensing system in real time.</li>
+<li>[-------] Save the parameters of current lensing system, including lenses and sources, in multiple formats.</li>
+<li>[-------] Input the system configuration - lenses and sources - as a catalog control file.</li>
+<li>[-------] Show all the parameters of current lensing system in real time.</li>
 </ul>
 </li>
 </ol>
@@ -212,6 +197,6 @@ Try "f" and "g". :-)</p></li>
       </div>
     </div>
 
-  
+
   </body>
 </html>
