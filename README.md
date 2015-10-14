@@ -61,7 +61,7 @@ Sources are represented as 2D Gaussian distributions, and can be altered in size
 * Hold "w" and the left mouse button to move the position of the source.
 * Hold "s" and the left mouse button and move the mouse vertically to change the size of the source.
 * Hold "e" and the left mouse button and move the mouse vertically to change the ellipticity of the source, or move the mouse horizontally to change the orientation of the source.
-* To add a new source (up to 9 total) hold "=" and left mouse click at the desired source location
+* To add a new source (up to 9 total) hold "=" and left mouse click at the desired source location.
 
 2. Lenses:
 Lenses are modeled as non-singular isothermal ellipsoids (NIEs). For simplicity, lenses are visualized as 2D Gaussian light distributions. Lenses can be altered in "size" (see below), projected shape, orientation, and placement. Like sources, up to 9 lenses may be placed, and individually controlled. Lenses are controlled using the right mouse button, rather than the left as for sources. Controls are identical, except for the "size" control. Because we are using an NIE model in this code, when you press "s" to change the size of the lens, there are two sizes: one is the Einstein radius (move the mouse vertically), the other one is the core radius (move the mouse horizontally).
