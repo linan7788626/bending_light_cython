@@ -28,7 +28,7 @@ Figure 3:
 	```bash
 	$ sudo ln /opt/local/lib/libSDL-1.2.0.dylib /usr/local/lib/libSDL-1.2.0.dylib
 	```
-	* I have got the first version of a standalone APP for Mac using [py2app](http://pythonhosted.org/py2app/). You can find it here: [Lensing Toy](https://www.dropbox.com/s/uuaf13nfcoet44c/Lensing%20Toy.zip?dl=0).
+	* I have got the first version of a standalone APP for Mac using [py2app](http://pythonhosted.org/py2app/). You can find it here: [Bending Light](https://www.dropbox.com/s/md2ppg5es7r3ner/Bending%20Light.zip?dl=0).
 	
 
 2. Installation:  
