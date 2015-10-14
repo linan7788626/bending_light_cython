@@ -88,7 +88,7 @@ Try "f" and "g". :-)
 
 4. Time Delays
  - [x] Implement full time delay calculations, useful for varying sources.
- - [ ] Animate varying sources, with time delays, in output visualizations.
+ - [x] Animate varying sources, with time delays, in output visualizations.
 
 5. Competitive Lensing - Modeling and Reconstruction!
  - [ ] Input lensed images by one person.
