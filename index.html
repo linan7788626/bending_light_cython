@@ -34,64 +34,12 @@
 <p><strong><em>Strong gravitational lensing</em></strong> is a remarkable phenomenon that produces some of the most striking images ever recorded by telescopes. The software tools that you can download here visually demonstrate what gravitational lensing is. By using a combination of mouse and keystrokes, you can build and explore a wide range of strong lensing scenarios. Extensive control of both the background sources and foreground lenses is offered. The software visualizes both the background sources and their strongly lensed images. Moreover, the caustic and critical curves of the lensing system are shown by default (Figure 1). The tool can visualize the properties of lenses (Figure 2), and the simulated observation of the lensing system (Figure 3). </p>
 
 <p>Figure 1:
-<img src="./images/figure0.png" alt="Figure 1">
+<img src="./images/figure_0.png" alt="Figure 1">
 Figure 2:<br>
-<img src="./images/figure2.png" alt="Figure 2">
+<img src="./images/figure_1.png" alt="Figure 2">
 Figure 3:
-<img src="./images/figure1.png" alt="Figure 3"></p>
+<img src="./images/figure_2.png" alt="Figure 3"></p>
 
-<h3>
-<a id="installation" class="anchor" href="#installation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installation</h3>
-
-<ol>
-<li>
-<p>Dependences:  </p>
-
-<ul>
-<li>
-<a href="https://www.python.org">Python2.7</a>, <a href="http://www.numpy.org">Numpy</a>, <a href="http://www.pygame.org">Pygame</a>, <a href="http://cython.github.io">Cython</a> and <a href="https://www.libsdl.org">SDL</a>.</li>
-<li>If you are using Linux, you can install all these packages using the default package manager, for example, apt-get for Debian and Ubuntu, yum for Fedora and Redhat,  pacman for Archlinux and so on.</li>
-<li>If you are using Mac, I would recommend <a href="https://www.macports.org">Macports</a> or <a href="http://brew.sh">Homebrew</a> to install these packages.</li>
-<li>My favorite way to install all the dependences is using <a href="https://store.continuum.io/cshop/anaconda/">Anaconda</a>. Once you have installed Anaconda, the environment of python2.7 is ready.</li>
-</ul>
-
-<p>THEN</p>
-
-<div class="highlight highlight-source-shell"><pre>$ conda install -c https://conda.binstar.org/quasiben pygame</pre></div>
-
-<p>If your SDL is not installed in /usr/local/lib, you need to link it to the default directory.</p>
-
-<div class="highlight highlight-source-shell"><pre>$ sudo ln /opt/local/lib/libSDL-1.2.0.dylib /usr/local/lib/libSDL-1.2.0.dylib</pre></div>
-
-<ul>
-<li>I have got the first version of a standalone APP for Mac using <a href="http://pythonhosted.org/py2app/">py2app</a>. You can find it here: <a href="https://www.dropbox.com/s/uuaf13nfcoet44c/Lensing%20Toy.zip?dl=0">Bending Light</a>.</li>
-</ul>
-</li>
-<li>
-<p>Installation:  </p>
-
-<ul>
-<li>Clone it or download it,<br>
-</li>
-</ul>
-
-<p>THEN</p>
-
-<div class="highlight highlight-source-shell"><pre>$ <span class="pl-c1">cd</span> libs
-$ python2.7 setup.py build_ext --inplace</pre></div>
-
-<p>OR</p>
-
-<div class="highlight highlight-source-shell"><pre>$ <span class="pl-c1">cd</span> libs
-$ ./make_so</pre></div>
-</li>
-<li>
-<p>Code Running:  </p>
-
-<div class="highlight highlight-source-shell"><pre>$ <span class="pl-c1">cd</span> ../
-$ python2.7 multiple_sources.py</pre></div>
-</li>
-</ol>
 
 <h3>
 <a id="usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage</h3>
@@ -116,6 +64,8 @@ Lenses are modeled as non-singular isothermal ellipsoids (NIEs). For simplicity,
 
 <li><p>Visualization Toggles:<br>
 Try "f" and "g". :-)</p></li>
+
+<li><p>If you are interested in installing it on you computer, please scroll down to the bottom of this page to read the instruction.</p></li>
 </ol>
 
 <h3>
@@ -141,15 +91,15 @@ The next version of this software will include these many additional tools.
 <li>[DONE] More models of lenses (PIEMD, GNFW, NFW+Hernquist, Burkert...).</li>
 <li>[DONE] Directly input mass sheet.</li>
 <li>[DONE] More satellite galaxies?</li>
-<li>[_____] Realistic images of satellite galaxies.</li>
+<li>[..........] Realistic images of satellite galaxies.</li>
 </ul>
 </li>
 <li>
 <p>Algorithm</p>
 
 <ul>
-<li>[_____] Anti-Aliasing.</li>
-<li>[_____] Better caustic rendering.</li>
+<li>[..........] Anti-Aliasing.</li>
+<li>[..........] Better caustic rendering.</li>
 </ul>
 </li>
 <li>
@@ -163,19 +113,72 @@ The next version of this software will include these many additional tools.
 <li>
 <p>Competitive Lensing - Modeling and Reconstruction!</p>
 <ul>
-<li>[_____] Input lensed images by one person.</li>
-<li>[_____] Reconstruct it by a second person.</li>
-<li>[_____] Score the match.</li>
+<li>[..........] Input lensed images by one person.</li>
+<li>[..........] Reconstruct it by a second person.</li>
+<li>[..........] Score the match.</li>
 </ul>
 </li>
 <li>
 <p>Inputs and Outputs</p>
 
 <ul>
-<li>[_____] Save the parameters of current lensing system, including lenses and sources, in multiple formats.</li>
-<li>[_____] Input the system configuration - lenses and sources - as a catalog control file.</li>
-<li>[_____] Show all the parameters of current lensing system in real time.</li>
+<li>[..........] Save the parameters of current lensing system, including lenses and sources, in multiple formats.</li>
+<li>[..........] Input the system configuration - lenses and sources - as a catalog control file.</li>
+<li>[..........] Show all the parameters of current lensing system in real time.</li>
 </ul>
+</li>
+</ol>
+
+<h3>
+<a id="installation" class="anchor" href="#installation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installation</h3>
+
+<ol>
+<li>
+<p>Dependences:  </p>
+
+<ul>
+<li>
+<a href="https://www.python.org">Python2.7</a>, <a href="http://www.numpy.org">Numpy</a>, <a href="http://www.pygame.org">Pygame</a>, <a href="http://cython.github.io">Cython</a> and <a href="https://www.libsdl.org">SDL</a>.</li>
+<li>If you are using Linux, you can install all these packages using the default package manager, for example, apt-get for Debian and Ubuntu, yum for Fedora and Redhat,  pacman for Archlinux and so on.</li>
+<li>If you are using Mac, I would recommend <a href="https://www.macports.org">Macports</a> or <a href="http://brew.sh">Homebrew</a> to install these packages.</li>
+<li>My favorite way to install all the dependences is using <a href="https://store.continuum.io/cshop/anaconda/">Anaconda</a>. Once you have installed Anaconda, the environment of python2.7 is ready.</li>
+</ul>
+
+<p>THEN</p>
+
+<div class="highlight highlight-source-shell"><pre>$ conda install -c https://conda.binstar.org/quasiben pygame</pre></div>
+
+<p>If your SDL is not installed in /usr/local/lib, you need to link it to the default directory.</p>
+
+<div class="highlight highlight-source-shell"><pre>$ sudo ln /opt/local/lib/libSDL-1.2.0.dylib /usr/local/lib/libSDL-1.2.0.dylib</pre></div>
+
+<ul>
+<li>I have got the first version of a standalone APP for Mac using <a href="http://pythonhosted.org/py2app/">py2app</a>. You can find it here: <a href="https://www.dropbox.com/s/md2ppg5es7r3ner/Bending%20Light.zip?dl=0">Bending Light</a>.</li>
+</ul>
+</li>
+<li>
+<p>Installation:  </p>
+
+<ul>
+<li>Clone it or download it,<br>
+</li>
+</ul>
+
+<p>THEN</p>
+
+<div class="highlight highlight-source-shell"><pre>$ <span class="pl-c1">cd</span> libs
+$ python2.7 setup.py build_ext --inplace</pre></div>
+
+<p>OR</p>
+
+<div class="highlight highlight-source-shell"><pre>$ <span class="pl-c1">cd</span> libs
+$ ./make_so</pre></div>
+</li>
+<li>
+<p>Code Running:  </p>
+
+<div class="highlight highlight-source-shell"><pre>$ <span class="pl-c1">cd</span> ../
+$ python2.7 multiple_sources.py</pre></div>
 </li>
 </ol>
         </section>
