@@ -22,7 +22,7 @@ def main():
     screen = pygame.display.set_mode((nnw, nnw), pygame.RESIZABLE, 32)
     #screen = pygame.display.set_mode((nnw, nnw), pygame.RESIZABLE| pygame.OPENGLBLIT | pygame.HWSURFACE | pygame.OPENGL | pygame.DOUBLEBUF)
 
-    pygame.display.set_caption("Gravitational Lensing Toy")
+    pygame.display.set_caption("Bending Light")
 
     mouse_cursor = pygame.Surface((nnn,nnn))
 
