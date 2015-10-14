@@ -69,32 +69,33 @@ Lenses are modeled as non-singular isothermal ellipsoids (NIEs). For simplicity,
 3. Visualization Toggles:
 Try "f" and "g". :-)
 
-##Todo List
+## Todo List
 1. Sources
  - [x] More sources.
  - [x] More models of sources (Sersic, Moffat, Disk\+Bulge...).
- - [ ] Real galaxies images.
- - [ ] Arbitrary pictures (for fun).
+ - [x] Real galaxies images.
+ - [x] Arbitrary pictures (for fun).
 
 2. Lenses
  - [x] More models of lenses (PIEMD, GNFW, NFW\+Hernquist, Burkert...).
  - [x] Directly input mass sheet.
- - [ ] More satellite galaxies?
+ - [x] More satellite galaxies?
  - [ ] Realistic images of satellite galaxies.
 
 3. Algorithm 
  - [ ] Anti-Aliasing.
  - [ ] Better caustic drawer.
 
-5. Time Delay
- - [x] Implementing in twinkles branch.
+4. Time Delays
+ - [x] Implement full time delay calculations, useful for varying sources.
+ - [ ] Animate varying sources, with time delays, in output visualizations.
 
-6. Competition Model
+5. Competitive Lensing - Modeling and Reconstruction!
  - [ ] Input lensed images by one person.
- - [ ] Reconstruct it by another one.
- - [ ] Score the matching.
+ - [ ] Reconstruct it by a second person.
+ - [ ] Score the match.
 
-7. Input and Output
- - [ ] Save the parameters of current lensing system, including lenses and sources.
- - [ ] Make the catalog of lensing system to be an input file.
+6. Inputs and Outputs
+ - [ ] Save the parameters of current lensing system, including lenses and sources, in multiple formats.
+ - [ ] Input the system configuration - lenses and sources - as a catalog control file.
  - [ ] Show all the parameters of current lensing system in real time.
