@@ -5,11 +5,11 @@ Strong gravitational lensing is a remarkable phenomenon that produces some of th
 
 
 Figure 1:
-![Figure 1](./screen_shots/figure0.png)
+![Figure 1](./screen_shots/figure_0.png)
 Figure 2:  
-![Figure 2](./screen_shots/figure1.png)
+![Figure 2](./screen_shots/figure_1.png)
 Figure 3:
-![Figure 3](./screen_shots/figure2.png)
+![Figure 3](./screen_shots/figure_2.png)
 
 
 ## Installation
