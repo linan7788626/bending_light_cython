@@ -17,7 +17,7 @@ Figure 3:
 	* [Python2.7](https://www.python.org), [Numpy](http://www.numpy.org), [Pygame](http://www.pygame.org), [Cython](http://cython.github.io) and [SDL](https://www.libsdl.org).
 	* If you are using Linux, you can install all these packages using the default package manager, for example, apt-get for Debian and Ubuntu, yum for Fedora and Redhat,  pacman for Archlinux and so on.
 	* If you are using Mac, I would recommend [Macports](https://www.macports.org) or [Homebrew](http://brew.sh) to install these packages.
-	* My favorite way to install all the dependences is using [Anaconda](https://store.continuum.io/cshop/anaconda/). Once you installed Anaconda, the environment of python2.7 is ready.
+	* My favorite way to install all the dependences is using [Anaconda](https://store.continuum.io/cshop/anaconda/). Once you have installed Anaconda, the environment of python2.7 is ready.
 
 	THEN
 
