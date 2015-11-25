@@ -48,7 +48,7 @@ Figure 3:
 
 	```bash
 	$ cd ../
-	$ python2.7 multiple_sources.py
+	$ python2.7 bending_light.py
 	```
 
 
