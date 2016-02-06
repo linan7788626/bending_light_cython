@@ -20,10 +20,15 @@ Figure 3:
 	* My favorite way to install all the dependences is using [Anaconda](https://store.continuum.io/cshop/anaconda/). Once you have installed Anaconda, the environment of python2.7 is ready.
 
 	THEN
-
+	For linux64
 	```bash
-	$ conda install -c https://conda.binstar.org/quasiben pygame
+	$ conda install -c https://conda.anaconda.org/tlatorre pygame
 	```
+	or for Mac
+	```bash
+	$ conda install -c https://conda.anaconda.org/quasiben pygame
+	```
+
 	If your SDL is not installed in /usr/local/lib, you need to link it to the default directory.
 	```bash
 	$ sudo ln /opt/local/lib/libSDL-1.2.0.dylib /usr/local/lib/libSDL-1.2.0.dylib
