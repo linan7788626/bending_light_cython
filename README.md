@@ -23,10 +23,12 @@ Figure 3:
 	For linux64
 	```bash
 	$ conda install -c https://conda.anaconda.org/tlatorre pygame
+	$ conda install -c https://conda.anaconda.org/kne pygame
 	```
 	or for Mac
 	```bash
 	$ conda install -c https://conda.anaconda.org/quasiben pygame
+	$ conda install -c https://conda.anaconda.org/kne pygame
 	```
 
 	If your SDL is not installed in /usr/local/lib, you need to link it to the default directory.
